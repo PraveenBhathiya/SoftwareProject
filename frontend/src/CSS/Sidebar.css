@@ -1,0 +1,81 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 190px;
+    height: 100vh; 
+    padding: 20px;
+    background-color: #dfecf7;
+  }
+  
+  .ruhuna-logo {
+    margin-bottom: 20px;
+  }
+  
+  .ruhuna-logo img {
+    height: 200px; 
+  }
+  
+  .panel {
+    width: 100%; 
+  }
+  
+  .nav-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; 
+    
+  }
+  
+  .nav-menu li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 18px;
+    transition: transform 0.2s, background-color 0.2s;
+    width: 100%; 
+    gap: 2px;
+    position: relative;
+  }
+  
+  .nav-menu li img {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 24px;
+    height: 24px;
+    
+  }
+  
+  .nav-menu li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px; 
+    height: 100%; 
+    background-color: #7caee3; 
+    border-radius: 10px; 
+    opacity: 0; 
+    transition: opacity 0.2s; 
+  }
+  
+  .nav-menu li:hover::after {
+    opacity: 1; 
+  }
+  
+  .nav-menu hr{
+    border: none;
+    width: 80%;
+    height: 3px;
+    
+  }
+  
+  .nav-menu li:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+    transform: translateX(5px); 
+  }
+  
+  
+  
