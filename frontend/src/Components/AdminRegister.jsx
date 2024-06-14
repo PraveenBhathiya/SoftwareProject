@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { StudentSignInContainer, Title, FormContainer, Topic, InputField, SubmitButton,} from '../Styles/AdminRegisterStyles';
+import { StudentSignInContainer, Title, FormContainer, Topic, InputField, SubmitButton, } from '../Styles/AdminRegisterStyles';
 import { useNavigate } from 'react-router-dom';
+import { Alert } from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
 
 const AdminRegister = () => {
 
@@ -14,7 +16,7 @@ const AdminRegister = () => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
 
-  console.log(formData);
+  //console.log(formData);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ const AdminRegister = () => {
       });
 
       const data = await res.json();
-      console.log(data);
+     // console.log(data);
 
       if (data.success === false) {
         return setErrorMessage(data.message);
@@ -81,9 +83,29 @@ const AdminRegister = () => {
           onChange={handleChange}
           required
         />
-        <SubmitButton type='button' onClick={handleSubmit}>Register</SubmitButton>
+        <SubmitButton
+          type='button'
+          onClick={handleSubmit}
+          disabled={loading}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          {
+            loading ? (
+              <>
+                <span className="p1-3">Loading...</span>
+              </>
+            ) : ("register")
+          }
+        </SubmitButton>
 
       </FormContainer>
+
+      {errorMessage && (
+        <Alert sx={{ mt: 5 }} severity="error" icon={<ErrorIcon />}>
+          {errorMessage}
+        </Alert>
+      )}
+
     </StudentSignInContainer>
   )
 }

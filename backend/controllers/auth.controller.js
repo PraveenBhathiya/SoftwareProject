@@ -7,7 +7,7 @@ export const signupStudent = async (req, res, next) => {
     const { username, regNo, email, batch, password } = req.body;
 
     if (!username || !regNo || !email || !password || !batch || username === "" || regNo === "" || email === "" || password === "" || batch === "") {
-        next(errorHandler(400, "All fileds are required"));
+        return next(errorHandler(400, "All fileds are required"));
     }
 
     const hashPassword = bcryptjs.hashSync(password, 10);
@@ -17,7 +17,7 @@ export const signupStudent = async (req, res, next) => {
         regNo,
         email,
         batch,
-        password,
+        password: hashPassword,
     });
 
     try {
@@ -32,7 +32,7 @@ export const signupTeacher = async (req, res, next) => {
     const { username, email, password } = req.body;
 
     if (!username || !email || !password || username === "" || email === "" || password === "") {
-        next(errorHandler(400, "All fileds are required"));
+        return next(errorHandler(400, "All fileds are required"));
     }
 
     const hashPassword = bcryptjs.hashSync(password, 10);
@@ -40,7 +40,7 @@ export const signupTeacher = async (req, res, next) => {
     const newTeacher = new Teacher({
         username,
         email,
-        password,
+        password: hashPassword,
     });
 
     try {
@@ -55,7 +55,7 @@ export const signupAdmin = async (req, res, next) => {
     const { username, email, password } = req.body;
 
     if (!username || !email || !password || username === "" || email === "" || password === "") {
-        next(errorHandler(400, "All fileds are required"));
+        return next(errorHandler(400, "All fileds are required"));
     }
 
     const hashPassword = bcryptjs.hashSync(password, 10);
@@ -63,7 +63,7 @@ export const signupAdmin = async (req, res, next) => {
     const newAdmin = new Admin({
         username,
         email,
-        password,
+        password: hashPassword,
     });
 
     try {
@@ -74,25 +74,99 @@ export const signupAdmin = async (req, res, next) => {
     }
 };
 
-export const signin = async (req, res, next) => {
-    const { regNo, password } = req.body;
+export const signinStudent = async (req, res, next) => {
+    const { username, password } = req.body;
 
-    if (!regNo || !password || regNo === "" || password === "") {
-        next(errorHandler(400, "All fields are required!"));
+    if (!username || !password || username === "" || password === "") {
+         next(errorHandler(400, "All fields are required!"));
     }
 
     try {
 
-        const validUser = await User.findOne({ regNo });
+        const validUser = await Student.findOne({ username });
 
         if (!validUser) {
-            next(errorHandler(404, "User not found!"));
+           return next(errorHandler(404, "User not found!"));
         }
 
         const validPassword = bcryptjs.compareSync(password, validUser.password);
 
         if (!validPassword) {
-            next(errorHandler(400, "Invalid Password!"));
+            return next(errorHandler(400, "Invalid Password!"));
+        }
+
+        const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
+
+        const {password: pass, ...rest} = validUser._doc;   //removing paaword from seen
+
+        res
+            .status(200)
+            .cookie("access_token", token, {
+                httpOnly: true,
+            })
+            .json(rest);
+
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const signinTeacher = async (req, res, next) => {
+    const { username, password } = req.body;
+
+    if (!username || !password || username === "" || password === "") {
+         next(errorHandler(400, "All fields are required!"));
+    }
+
+    try {
+
+        const validUser = await Teacher.findOne({ username });
+
+        if (!validUser) {
+           return next(errorHandler(404, "User not found!"));
+        }
+
+        const validPassword = bcryptjs.compareSync(password, validUser.password);
+
+        if (!validPassword) {
+            return next(errorHandler(400, "Invalid Password!"));
+        }
+
+        const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
+
+        const {password: pass, ...rest} = validUser._doc;   //removing paaword from seen
+
+        res
+            .status(200)
+            .cookie("access_token", token, {
+                httpOnly: true,
+            })
+            .json(rest);
+
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const signinAdmin = async (req, res, next) => {
+    const { username, password } = req.body;
+
+    if (!username || !password || username === "" || password === "") {
+         next(errorHandler(400, "All fields are required!"));
+    }
+
+    try {
+
+        const validUser = await Admin.findOne({ username });
+
+        if (!validUser) {
+           return next(errorHandler(404, "User not found!"));
+        }
+
+        const validPassword = bcryptjs.compareSync(password, validUser.password);
+
+        if (!validPassword) {
+            return next(errorHandler(400, "Invalid Password!"));
         }
 
         const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);

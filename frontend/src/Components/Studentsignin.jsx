@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { StudentSignInContainer, Title, Logo, FormContainer, Topic, InputField, SubmitButton, Regs } from '../Styles/StudentSignInStyles';
 import ruh1 from '../../src/Assets/Ruhunalogo.png';
 import { useNavigate } from 'react-router-dom';
+import { Alert} from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
 
 
 const Studentsignin = () => {
@@ -77,10 +79,35 @@ const Studentsignin = () => {
           onChange={handleChange}
           required
         />
-        <SubmitButton type='button' onClick={handleSubmit}>Login</SubmitButton>
+
+        <SubmitButton
+          type='button'
+          onClick={handleSubmit}
+          disabled={loading}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          {
+            loading ? (
+              <>
+                <span className="p1-3">Loading...</span>
+              </>
+            ) : ("Login")
+          }
+        </SubmitButton>
         <Regs to="/student/student-register" type='button'  >Register</Regs>
+
+
       </FormContainer>
+
+      {errorMessage && (
+        <Alert sx={{ mt: 5 }} severity="error" icon={<ErrorIcon />}>
+          {errorMessage}
+        </Alert>
+      )}
+
     </StudentSignInContainer>
+
+
   )
 }
 

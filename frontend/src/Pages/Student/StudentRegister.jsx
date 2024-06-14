@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { StudentSignInContainer, Title, Logo, FormContainer, Topic, InputField, SubmitButton} from '../../Styles/StudentRegister';
+import { StudentSignInContainer, Title, Logo, FormContainer, Topic, InputField, SubmitButton } from '../../Styles/StudentRegister';
 import ruh1 from '../../Assets/Ruhunalogo.png';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Alert } from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
 
 const StudentRegister = () => {
 
@@ -12,15 +14,15 @@ const StudentRegister = () => {
    const navigate = useNavigate();
 
    const handleChange = (e) => {
-      setFormData({ ...formData, [e.target.id]: e.target.value.trim()});
+      setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
    };
 
-   console.log(formData);
+  // console.log(formData);
 
    const handleSubmit = async (e) => {
       e.preventDefault();
 
-      if(!formData.username || !formData.regNo || !formData.email || !formData.batch || !formData.password){
+      if (!formData.username || !formData.regNo || !formData.email || !formData.batch || !formData.password) {
          return setErrorMessage("All fields are required!");
       }
       try {
@@ -36,15 +38,15 @@ const StudentRegister = () => {
          });
 
          const data = await res.json();
-         console.log(data);
+      //   console.log(data);
 
-         if(data.success === false){
+         if (data.success === false) {
             return setErrorMessage(data.message);
          }
 
          setLoading(false);
 
-         if(res.ok){
+         if (res.ok) {
             navigate('/student-signIn');
          }
 
@@ -97,9 +99,28 @@ const StudentRegister = () => {
                required
             />
 
-            <SubmitButton type='button' onClick={handleSubmit}>Register</SubmitButton>
+            <SubmitButton
+               type='button'
+               onClick={handleSubmit}
+               disabled={loading}
+               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+               {
+                  loading ? (
+                     <>
+                        <span className="p1-3">Loading...</span>
+                     </>
+                  ) : ("register")
+               }
+            </SubmitButton>
 
          </FormContainer>
+         {errorMessage && (
+            <Alert sx={{ mt: 5 }} severity="error" icon={<ErrorIcon />}>
+               {errorMessage}
+            </Alert>
+         )}
+
       </StudentSignInContainer>
    )
 }
