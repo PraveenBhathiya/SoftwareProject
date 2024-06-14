@@ -12,6 +12,9 @@ const Home = () => {
  const handleLoginClick = () =>{
         navigate('/choose-user');
  };
+ const handleGuestClick = () =>{
+  navigate('/guest-user');
+};
 
   return (
     <div className='home-content'>
@@ -28,7 +31,7 @@ const Home = () => {
          <Navbar>
             <ButtonsContainer>
               <LoginButton onClick={handleLoginClick}>Sign In</LoginButton>
-              <GuestButton onClick={handleLoginClick}>Guest Mode </GuestButton>
+              <GuestButton onClick={handleGuestClick}>Guest Mode </GuestButton>
             </ButtonsContainer>
          </Navbar>
          <HomeContainer>

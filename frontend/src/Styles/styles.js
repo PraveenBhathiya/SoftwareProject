@@ -13,7 +13,7 @@ export const Navbar = styled.nav`
   padding: 20px;
   background-color: transparent;
   color: black;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   z-index: 1000;
 
   @media screen and (max-width: 768px) {

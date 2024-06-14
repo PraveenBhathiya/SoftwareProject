@@ -7,6 +7,7 @@ import StudentDashboard from './Pages/Student/Dashboard.jsx';
 import TeacherDashBoard from './Pages/Teacher/Dashboard.jsx';
 import AdminDashBoard from './Pages/Admin/Dashboard.jsx';
 
+import GuestUser from './Pages/GuestPage.jsx';
 import ChooseUser from './Components/ChooseUser.jsx';
 import Adminsignin from './Components/Adminsignin.jsx';
 import Studentsignin from './Components/Studentsignin.jsx';
@@ -14,6 +15,7 @@ import Teachersignin from './Components/Teachersignin.jsx';
 import StudentRegister from './Pages/Student/StudentRegister.jsx';
 import TeacherRegister from './Pages/Teacher/TeacherRegister.jsx';
 import AdminRegister from './Components/AdminRegister.jsx';
+
 
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
           <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/choose-user' element={<ChooseUser/>} />
-
+          <Route path='/guest-user' element={<GuestUser/>} />
 
           <Route exact path='/admin-signIn' element={< Adminsignin/>} />
           <Route exact path='/teacher-signIn' element={< Teachersignin/>} />
