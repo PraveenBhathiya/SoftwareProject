@@ -40,7 +40,7 @@ export const Title = styled.h2`
 `;
 
 export const Button = styled(Link)`
-  background-color: #2648c3; 
+  background-color: #2563EB; 
   color: white;
   border: none;
   padding: 10px 20px;
@@ -51,7 +51,7 @@ export const Button = styled(Link)`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #6481e9; 
+    background-color: #1E4BAF; 
   }
 
   @media screen and (max-width: 768px) {

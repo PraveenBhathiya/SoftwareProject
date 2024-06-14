@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StudentSignInContainer, Title, Logo, FormContainer, Topic, InputField, SubmitButton, Regs } from '../../Styles/TeacherRegister';
+import { StudentSignInContainer, Title, Logo, FormContainer, Topic, InputField, SubmitButton} from '../../Styles/TeacherRegister';
 import ruh1 from '../../Assets/Ruhunalogo.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -72,7 +72,7 @@ const TeacherRegister = () => {
 
         <InputField
           type='email'
-          placeholder='Student Email'
+          placeholder='email'
           id='email'
           onChange={handleChange}
           required

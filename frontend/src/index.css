@@ -1,0 +1,7 @@
+/* src/index.css or src/App.css or your global CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Apply the font to the body or any specific elements */
+body {
+    font-family: 'Poppins', sans-serif;
+}

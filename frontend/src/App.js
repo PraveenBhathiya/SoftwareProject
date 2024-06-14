@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home.jsx';
+import './index.css';
 
 import StudentDashboard from './Pages/Student/Dashboard.jsx';
 import TeacherDashBoard from './Pages/Teacher/Dashboard.jsx';

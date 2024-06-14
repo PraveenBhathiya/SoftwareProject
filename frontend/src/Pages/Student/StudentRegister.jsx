@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StudentSignInContainer, Title, Logo, FormContainer, Topic, InputField, SubmitButton, Regs } from '../../Styles/StudentRegister';
+import { StudentSignInContainer, Title, Logo, FormContainer, Topic, InputField, SubmitButton} from '../../Styles/StudentRegister';
 import ruh1 from '../../Assets/Ruhunalogo.png';
 import {useNavigate} from 'react-router-dom';
 

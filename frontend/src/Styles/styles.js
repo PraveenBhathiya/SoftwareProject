@@ -1,4 +1,4 @@
-// styles.js
+/* styles.js */
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ export const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  background-color: rgb(226, 242, 250);
+  background-color: transparent;
   color: black;
   font-family: Arial, sans-serif;
   z-index: 1000;
@@ -32,13 +32,10 @@ export const Logo = styled.img`
   }
 `;
 
-
-
-
 export const NavigationLinks = styled.div`
   display: flex;
   align-items: center;
-  gap:20px;
+  gap: 20px;
 
   @media screen and (max-width: 768px) {
     margin-top: 10px;
@@ -63,26 +60,34 @@ export const NavLink = styled.a`
 `;
 
 export const ButtonsContainer = styled.div`
+  position: fixed;
+  top: 20px;
+  right: 40px;
   display: flex;
   align-items: center;
-  margin-right: 35px;
 
   @media screen and (max-width: 768px) {
-    margin-top: 10px;
-    margin-right: 0;
+    top: 10px;
+    right: 10px;
   }
 `;
 
 export const LoginButton = styled.button`
-  background-color: #2648c3;
+  background-color: #2563EB;
   color: white;
-  border-radius:5px;
-  padding: 10px 20px;
-  margin-right: 10px;
+  border: none;                
+  padding: 10px 20px;  /* Adjusted padding for better look */
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
+  border-radius: 5px;
+  margin-right: 10px;  /* Added margin-right to create space */
+  transition: background-color 0.3s ease;
 
+  &:hover {
+    background-color: #1E4BAF;
+  }
+  
   @media screen and (max-width: 768px) {
     padding: 8px 16px;
     font-size: 14px;
@@ -90,19 +95,18 @@ export const LoginButton = styled.button`
 `;
 
 export const GuestButton = styled.button`
-  color: #2648c3;
-  border: none;
-  padding: 10px 20px;
+  background-color: #2563EB;
+  color: white;
+  border: none;                
+  padding: 10px 20px;  /* Adjusted padding for better look */
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  border: 2px solid blue;
   border-radius: 5px;
-  background-color: transparent;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: white;
+    background-color: #1E4BAF;
   }
 
   @media screen and (max-width: 768px) {
@@ -110,14 +114,13 @@ export const GuestButton = styled.button`
     font-size: 14px;
   }
 `;
-
 export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: linear-gradient(-360deg, white, rgb(226, 242, 250));
   background-size: cover;
+  background-color: #ffffff;
   background-position: center;
   min-height: 100vh;
   padding-top: 80px;
@@ -136,8 +139,8 @@ export const Logo1 = styled.img`
   max-height: 100vh;
   object-fit: cover;
   margin-top: 20px;
-  border-radius:6px;
-  justify-content:center;
+  border-radius: 6px;
+  justify-content: center;
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -146,16 +149,14 @@ export const Logo1 = styled.img`
 
 export const Title = styled.h1`
   font-size: 36px;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  color: black;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #525252;
 
   @media screen and (max-width: 768px) {
     font-size: 28px;
   }
 `;
-
-
 
 export const AdminRegisterLink = styled(Link)`
   color: black;
@@ -163,10 +164,7 @@ export const AdminRegisterLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   margin-top: 30px;
-  
- 
-  left:50%;
-  align-text:center;
+  align-text: center;
 
   &:hover {
     text-decoration: underline;
