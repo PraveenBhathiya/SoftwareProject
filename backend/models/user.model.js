@@ -36,8 +36,6 @@ const Student = mongoose.model("Student", studentSchema);
 
 //export default Student;
 
-
-
 const teacherSchema = new mongoose.Schema(
     {
 
@@ -63,4 +61,29 @@ const teacherSchema = new mongoose.Schema(
 
 const Teacher = mongoose.model("Teacher", teacherSchema);
 
-export {Student, Teacher};
+const adminSchema = new mongoose.Schema(
+    {
+
+        username:{
+            type: String,
+            required: true,
+            unique: true,
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        }
+    },
+    {
+        timestamps: true,
+    }
+);
+
+const Admin = mongoose.model("Admin", adminSchema);
+
+export {Student, Teacher, Admin};
