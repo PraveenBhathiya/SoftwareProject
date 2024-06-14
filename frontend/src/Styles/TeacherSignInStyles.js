@@ -13,7 +13,7 @@ export const Title = styled.div`
   Font-size: 40px;
   color: #2648c3;
   margin-top: 50px;
-  
+  font-weight: bold;
 
 `;
 export const Logo = styled.div`

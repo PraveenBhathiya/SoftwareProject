@@ -8,9 +8,13 @@ export const AdminSignInContainer = styled.div`
   align-items: center;
   background: rgb(226, 242, 250);
   min-height: 100vh; 
+  
 `;
 export const Title = styled.div`
   Font-size: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  text-align: center;
   color: #2648c3;
   margin-top: 50px;
   
@@ -40,6 +44,7 @@ export const FormContainer = styled.form`
 `;
 export const Topic = styled.div`
   Font-size: 30px;
+  font-family: 'Poppins', sans-serif;
   font-weight:800;
   color: #2648c3;
   margin-top: 50px;
