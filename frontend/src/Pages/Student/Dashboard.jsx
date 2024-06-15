@@ -5,6 +5,7 @@ import prof from '../../Assets/profile.png';
 import '../../CSS/Dashboard.css';
 import StuNoticePanel from '../Student/StuNoticePanel.jsx';
 import StudentSidebar from './Sidebar.jsx';
+import {Logo1} from '../../Styles/styles.js';
 
 const StudentDashBoard = () => {
     const [menu, setMenu] = useState("Dashboard");
@@ -30,7 +31,8 @@ const StudentDashBoard = () => {
                     <h2>Welcome to DEIE UGP Management System</h2>
                 </div>
                 <div className="imgtag">
-                    <img className='dep1' src={dep} alt="" />
+                    
+                    <Logo1 src= {dep} alt=''/><br/>
                 </div>
                 <div className="p">Available Courses</div>
                 <div className="courses">
