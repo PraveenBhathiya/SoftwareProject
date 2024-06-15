@@ -24,7 +24,7 @@ const TeacherDashBoard = () => {
                     <Link style={{ textDecoration: 'none' }} to='/profile'>Profile</Link>
                     {menu === "Profile" ? <hr /> : null}
                 </div>
-                <div className="hi">Hi(Name), Good(Afternoon!)</div>
+                <div className="hi">Hi, Good Morning!</div>
                 <div className="title">
                     <h2>Welcome to DEIE UGP Management System</h2>
                 </div>

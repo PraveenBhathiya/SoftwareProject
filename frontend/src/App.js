@@ -15,6 +15,8 @@ import Teachersignin from './Components/Teachersignin.jsx';
 import StudentRegister from './Pages/Student/StudentRegister.jsx';
 import TeacherRegister from './Pages/Teacher/TeacherRegister.jsx';
 import AdminRegister from './Components/AdminRegister.jsx';
+import Aboutus from './Components/Aboutus.jsx';
+import Contactus from './Components/Contactus.jsx';
 
 
 
@@ -31,6 +33,9 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/choose-user' element={<ChooseUser/>} />
           <Route path='/guest-user' element={<GuestUser/>} />
+
+          <Route path='/about-us' element={<Aboutus/>} />
+          <Route path='/contact-us' element={<Contactus/>} />
 
           <Route exact path='/admin-signIn' element={< Adminsignin/>} />
           <Route exact path='/teacher-signIn' element={< Teachersignin/>} />
