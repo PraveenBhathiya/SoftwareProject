@@ -12,9 +12,10 @@ const StudentDashBoard = () => {
     return (
         <div className='dashContainer'>
             
-                <StudentSidebar/>
+                
             
             <div className='mainContent'>
+            <StudentSidebar/>
                 <div className='leftPanel'>
                     <div className="verticalLine"></div> {/* Thin vertical line */}
                     <StuNoticePanel /> {/* Notice panel component */}

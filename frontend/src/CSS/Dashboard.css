@@ -50,22 +50,22 @@
     border-radius: 15px;
    
 }
-.imgtag{
-   display: flex; 
-   width: 940px; 
-   height: 390px;
-   background: rgb(216, 232, 240);
-   border-radius: 20px;
+.imgtag {
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  width: 100%; /* Allow it to fill the width of the container */
+  height: auto; /* Let height adjust based on the content */
+  background: rgb(216, 232, 240);
+  border-radius: 20px;
 }
-.dep1{
-    justify-content: center;
-    width: 920px;
-    height: 350px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 10px
+.dep1 {
+  width: auto; /* Ensure the image uses full width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 920px; /* Maximum width */
+  max-height: 500px; /* Maximum height */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 .p{
     display: flex;
