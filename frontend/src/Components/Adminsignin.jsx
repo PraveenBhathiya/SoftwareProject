@@ -61,7 +61,7 @@ const Adminsignin = () => {
       <Title>DEIE UGP Management System</Title> <br />
       <Logo src={ruh1} alt="Logo" />
       <FormContainer>
-        <Topic>Login</Topic>
+        <Topic>Login as Admin</Topic>
         <InputField
           type='text'
           placeholder='Username'
