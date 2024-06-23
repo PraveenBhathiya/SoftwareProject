@@ -1,0 +1,93 @@
+.teacher-marks {
+    display: flex;
+    height: 100vh; 
+  }
+  
+  .TeacherSidebar {
+    width: 250px; 
+  }
+
+  .marks-container {
+    flex-grow: 1; 
+    padding: 20px; 
+    margin-left: -300px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .title{
+      display: flex;
+      font-size: 28px;
+      font-weight: 800;
+      color: #2648c3;
+      margin-left: -570px;
+      margin-top: -10px;
+  } 
+
+  .profile-container {
+    width: 10%;
+    margin-left: 20px;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    color: #2648c3;
+    gap: 5px;
+    font-size: 19px;
+    margin-left: 850px;
+    margin-top: -70px;
+  }
+  .profile img{
+      width: 24px;
+      height: 24px;
+      border-radius: 15px;
+     
+  }
+
+  
+.courses {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
+    gap: 40px;
+  }
+  
+  .e22, .e21, .e20, .e19 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(216, 232, 240);
+    padding: 15px;
+    border-radius: 8px;
+    width: 280px;
+    height: 50px;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .e22 p, .e21 p, .e20 p, .e19 p {
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    margin-left: -40px;
+    margin-top: 5px;
+    padding: 0;
+  }
+  
+  .e22-btn, .e21-btn, .e20-btn, .e19-btn {
+    background-color: #3a3ab8;
+    color: white;
+    border: none;
+    text-align: center;
+    padding: 5px 35px;
+    margin-left: -145px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 18px;
+  }
+  
+  .e22-btn:hover, .e21-btn:hover, .e20-btn:hover, .e19-btn:hover {
+    background-color: #2980b9;
+  }

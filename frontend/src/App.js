@@ -18,7 +18,12 @@ import AdminRegister from './Components/AdminRegister.jsx';
 import Aboutus from './Components/Aboutus.jsx';
 import Contactus from './Components/Contactus.jsx';
 
+import TeacherMarks from './Pages/Teacher/Marks.jsx';
 
+import Teacher_View_e22_marks from './Pages/Teacher/View_e22_marks.jsx';
+import Teacher_View_e21_marks from './Pages/Teacher/View_e21_marks.jsx';
+import Teacher_View_e20_marks from './Pages/Teacher/View_e20_marks.jsx';
+import Teacher_View_e19_marks from './Pages/Teacher/View_e19_marks.jsx';
 
 function App() {
   return (
@@ -48,6 +53,14 @@ function App() {
           <Route exact path='/student/dashboard' element={< StudentDashboard />} />
           <Route exact path='/teacher/dashboard' element={< TeacherDashBoard />} /> 
           <Route exact path='/admin/dashboard' element={< AdminDashBoard />} /> 
+
+          <Route exact path='/teacher/sidebar/marks' element={< TeacherMarks />} />
+          
+          <Route exact path='/teacher/sidebar/marks/view_e22_marks' element={< Teacher_View_e22_marks />} />
+          <Route exact path='/teacher/sidebar/marks/view_e21_marks' element={< Teacher_View_e21_marks />} />
+          <Route exact path='/teacher/sidebar/marks/view_e20_marks' element={< Teacher_View_e20_marks />} />
+          <Route exact path='/teacher/sidebar/marks/view_e19_marks' element={< Teacher_View_e19_marks />} />
+
         </Routes>
           </div>
         
