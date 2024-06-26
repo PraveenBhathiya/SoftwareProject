@@ -61,7 +61,7 @@ export const NavLink = styled.a`
 
 export const ButtonsContainer = styled.div`
   position: fixed;
-  top: 20px;
+  top: 10px;
   right: 40px;
   display: flex;
   align-items: center;

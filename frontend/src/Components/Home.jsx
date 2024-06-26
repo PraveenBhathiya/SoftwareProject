@@ -1,47 +1,40 @@
-import React from 'react';
-import {Link, useNavigate} from 'react-router-dom';
-import {Navbar, Logo, NavigationLinks, NavLink, ButtonsContainer ,LoginButton , GuestButton , HomeContainer, UniInfo, Title, AdminRegisterLink, Logo1  } from '../Styles/styles';
-import menu from '../../src/Assets/Menu.png';
-import dep from '../../src/Assets/department.png';
-import rulogo from '../../src/Assets/Ruhunalogo.png';
+import { useEffect, useState } from "react";
+import Background from "./Background/Background.jsx";
+import Navbar1 from "./Navbar/Navbar.jsx";
+import Hero from "./Hero/Hero.jsx";
+
 
 const Home = () => {
 
- const navigate = useNavigate();
+let heroData = [
+  {text1:"Welcome To",text2:"Faculty of Engineering"},
+  {text1:"University of Ruhuna",text2:"Department of Electrical and Information Engineering"},
+  {text1:"Seamless task tracking for ",text2:"students and mentors."},
+  {text1:"Effortlessly manage",text2:" deadlines and milestones."},
+  {text1:"Streamlined project completion",text2:" through efficient collaboration."},
+]
 
- const handleLoginClick = () =>{
-        navigate('/choose-user');
- };
- const handleGuestClick = () =>{
-  navigate('/guest-user');
-};
+const [heroCount,setHeroCount] = useState(0);
+const [playStatus,setPlayStatus] = useState(false);
+
+useEffect(()=>{
+  setInterval(()=>{
+      setHeroCount((count)=>{return count===4?0:count+1})
+  },5000)
+},[])
 
   return (
-    <div className='home-content'>
-        <div class="sidebar">
-          <img src={rulogo} alt="Logo" class="logo"/>
-              <ul class="nav-links">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="/about-us">About us</a></li>
-                  <li><a href="/contact-us">Contact us</a></li>
-               </ul>
-        </div>
-
-
-         <Navbar>
-            <ButtonsContainer>
-              <LoginButton onClick={handleLoginClick}>Sign In</LoginButton>
-              <GuestButton onClick={handleGuestClick}>Guest Mode </GuestButton>
-            </ButtonsContainer>
-         </Navbar>
-         <HomeContainer>
-             <UniInfo>
-              <Title>Welcome to DEIE UGP Management System</Title>
-              <Logo1 src= {dep} alt=''/><br/>
-              
-              
-             </UniInfo>
-         </HomeContainer>
+    <div>
+        <Background playStatus={playStatus} heroCount={heroCount}/>
+        <Navbar1/>
+        <Hero
+          setPlayStatus={setPlayStatus}
+          heroData={heroData[heroCount]}
+          heroCount={heroCount}
+          setHeroCount={setHeroCount}
+          playStatus={playStatus}
+        
+        />
 
     </div>
   )
