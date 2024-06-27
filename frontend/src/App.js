@@ -25,6 +25,9 @@ import Teacher_View_e21_marks from './Pages/Teacher/View_e21_marks.jsx';
 import Teacher_View_e20_marks from './Pages/Teacher/View_e20_marks.jsx';
 import Teacher_View_e19_marks from './Pages/Teacher/View_e19_marks.jsx';
 
+import Student_View_marks from './Pages/Student/View_marks.jsx';
+import Admin_Marks from './Pages/Admin/Marks.jsx';
+
 function App() {
   return (
     
@@ -60,6 +63,9 @@ function App() {
           <Route exact path='/teacher/sidebar/marks/view_e21_marks' element={< Teacher_View_e21_marks />} />
           <Route exact path='/teacher/sidebar/marks/view_e20_marks' element={< Teacher_View_e20_marks />} />
           <Route exact path='/teacher/sidebar/marks/view_e19_marks' element={< Teacher_View_e19_marks />} />
+
+          <Route exact path='/student_view_Marks' element={< Student_View_marks />} />
+          <Route exact path='/Admin-Marks' element={< Admin_Marks />} />
 
         </Routes>
           </div>

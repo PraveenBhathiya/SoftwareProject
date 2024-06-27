@@ -2,6 +2,7 @@
     display: flex;
     height: 100vh; 
   }
+
   
   .TeacherSidebar {
     width: 250px; 
@@ -91,3 +92,54 @@
   .e22-btn:hover, .e21-btn:hover, .e20-btn:hover, .e19-btn:hover {
     background-color: #2980b9;
   }
+
+
+
+  .viewmark {
+    display: flex;
+    height: 100vh; 
+  }
+
+  .StudentSidebar {
+    width: 250px; 
+  }
+
+  .title1{
+    display: flex;
+    font-size: 28px;
+    font-weight: 800;
+    color: #2648c3;
+    margin-left: -480px;
+    margin-top: -10px;
+} 
+
+.marks-box{
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 45px;
+  margin-left: 270px;
+  
+}
+
+.marks-box .prop,.prog,.fin{
+  border: 0px solid #000;
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
+  width: 240px;
+  height: 100px;
+  align-items: center;
+  background:#dfecf7;
+}
+
+.marks-box .prop p, .prog p, .fin p{
+  display: flex;
+  font-size: 18px;
+  margin-top: 5px;
+  
+}
+
+.marks-box .prop h1, .prog h1, .fin h1{
+  display: flex;
+  color: #3239f6;
+}

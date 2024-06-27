@@ -1,0 +1,30 @@
+.marks{
+    display: flex;
+    height: 100vh; 
+}
+
+.viewmarks{
+    flex-grow: 1; 
+    padding: 5px; 
+    margin-left: -700px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.view-mark-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.marks1{
+ border: 0px solid #000;
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
+  width: 240px;
+  height: 50px;
+  align-items: center;
+  background:#dfecf7;
+}
