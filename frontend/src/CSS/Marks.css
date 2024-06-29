@@ -142,4 +142,5 @@
 .marks-box .prop h1, .prog h1, .fin h1{
   display: flex;
   color: #3239f6;
+  margin-left: 12px;
 }
