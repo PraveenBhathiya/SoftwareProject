@@ -18,9 +18,9 @@ const Home = () => {
 
   return (
     <div className='home-content'>
-        <div class="sidebar">
+        <div className="sidebar">
           <img src={rulogo} alt="Logo" class="logo"/>
-              <ul class="nav-links">
+              <ul className="nav-links">
                   <li><a href="#">Home</a></li>
                   <li><a href="/about-us">About us</a></li>
                   <li><a href="/contact-us">Contact us</a></li>

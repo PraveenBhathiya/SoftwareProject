@@ -4,13 +4,17 @@ import ruh1 from '../../src/Assets/Ruhunalogo.png';
 import { useNavigate } from 'react-router-dom';
 import { Alert} from '@mui/material';
 import ErrorIcon from '@mui/icons-material/Error';
+import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice.js';
+import {useDispatch, useSelector} from 'react-redux';
 
 
 const Studentsignin = () => {
 
   const [formData, setFormData] = useState({});
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
+  // const [errorMessage, setErrorMessage] = useState(null);
+  // const [loading, setLoading] = useState(false);   //we are using reducers to do this using redux
+  const dispatch = useDispatch();
+  const{loading, error: errorMessage} = useSelector((state) => state.user); //here user from userSlice.js
 
   const navigate = useNavigate();
 
@@ -24,12 +28,14 @@ const Studentsignin = () => {
     e.preventDefault();
 
     if (!formData.username || !formData.password) {
-      return setErrorMessage("All fields are required!");
+      // return setErrorMessage("All fields are required!");
+      return dispatch(signInFailure("Please fill in all fields!"));
     }
     try {
 
-      setLoading(true);
-      setErrorMessage(null);
+      // setLoading(true);
+      // setErrorMessage(null);
+      dispatch(signInStart());
       const res = await fetch("http://localhost:4000/api/auth/signinStudent", {
         method: "POST",
         headers: {
@@ -42,18 +48,22 @@ const Studentsignin = () => {
       console.log(data);
 
       if (data.success === false) {
-        return setErrorMessage(data.message);
+        // setLoading(false);
+        // return setErrorMessage(data.message);
+        dispatch(signInFailure(data.message));
       }
 
-      setLoading(false);
+      //setLoading(false);
 
       if (res.ok) {
+        dispatch(signInSuccess(data)); 
         navigate('/student/dashboard');
       }
 
     } catch (error) {
-      setErrorMessage(error.message);
-      setLoading(false);
+      // setErrorMessage(error.message);
+      // setLoading(false);
+      dispatch(signInFailure(error.message));
     }
   };
 
