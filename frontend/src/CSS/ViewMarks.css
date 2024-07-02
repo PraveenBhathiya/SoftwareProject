@@ -1,0 +1,141 @@
+.marks{
+    display: flex;
+    height: 100vh; 
+}
+
+.viewmarks{
+    flex-grow: 1; 
+    padding: 5px; 
+    margin-left: -350px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewmarks h1{
+    display: flex;
+    font-size: 28px;
+    font-weight: 800;
+    color: #2648c3;
+    margin-left: -480px;
+    margin-top: -10px;
+}
+
+.view-mark-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.marks1{
+  border: 0px solid #000;
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
+  width: 600px;
+  height: 50px;
+  justify-content: space-between; 
+  align-items: center;
+  background:#dfecf7;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+ .marks1 .mark1{
+  font-size: 16px;
+  border: 0px solid #000;
+  background: #b9d8f1;
+  border-radius: 12px;
+  width: 80px;
+  height: 30px;
+  padding: 1px 2px;
+  text-align: center;
+}
+
+.marks1 .view1{
+  font-size: 16px;
+  border: 0px solid #000;
+  background: #5eaff7;
+  color: #fff;
+  border-radius: 12px;
+  width: 100px;
+  height: 30px;
+  padding: 1px 2px;
+  text-align: center;
+  
+}
+
+.marks2{
+    border: 0px solid #000;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    width: 600px;
+    height: 50px;
+    justify-content: space-between; 
+    align-items: center;
+    background:#dfecf7;
+    display: flex;
+    flex-direction: row;
+    gap: 0; 
+}
+
+.marks2 .mark2{
+ font-size: 16px;
+  border: 0px solid #000;
+  background: #b9d8f1;
+  border-radius: 12px;
+  width: 100px;
+  height: 30px;
+  padding: 1px 2px;
+  text-align: center;
+}
+
+.marks2 .view2{
+  font-size: 16px;
+  border: 0px solid #000;
+  background: #5eaff7;
+  color: #fff;
+  border-radius: 12px;
+  width: 100px;
+  height: 30px;
+  padding: 1px 2px;
+  text-align: center;
+}
+
+.upmarks{
+    border: 0px solid #000;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    width: 600px;
+    height: 50px;
+    justify-content: space-between; 
+    align-items: center;
+    background:#dfecf7;
+    display: flex;
+    flex-direction: row;
+    gap: 0; 
+}
+
+.upmarks .up{
+    font-size: 16px;
+  border: 0px solid #000;
+  background: #b9d8f1;
+  border-radius: 12px;
+  width: 120px;
+  height: 30px;
+  padding: 1px 2px;
+  text-align: center;
+}
+
+.upmarks .up1{
+    font-size: 16px;
+    border: 0px solid #000;
+    background: #5eaff7;
+    color: #fff;
+    border-radius: 12px;
+    width: 120px;
+    height: 30px;
+    padding: 1px 2px;
+    text-align: center; 
+}

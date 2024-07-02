@@ -30,9 +30,8 @@ const StudentDashBoard = () => {
                 <div className="title">
                     <h2>Welcome to DEIE UGP Management System</h2>
                 </div>
-                <div className="imgtag">
-                    
-                    <Logo1 src= {dep} alt=''/><br/>
+                <div className="dep">
+                    <img src={dep} alt="" className="depart" />
                 </div>
                 <div className="p">Available Courses</div>
                 <div className="courses">

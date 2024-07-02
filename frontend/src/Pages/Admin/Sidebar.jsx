@@ -23,7 +23,7 @@ export const AdminSidebar = ({children}) => {
       <div className="panel">
         <ul className='nav-menu'>
           <li onClick={()=>{setMenu("Dashboard")}}><img src={logo1} alt="Dashboard Icon" /><Link style={{textDecoration:'none'}} to='/admin/dashboard'>Dashboard</Link>{menu==="Dashboard"?<hr/>:<></>}</li>
-          <li onClick={()=>{setMenu("Marks")}}><img src={logo2} alt="Marks Icon" /><Link style={{textDecoration:'none'}} to='/Marks'>Marks</Link>{menu==="Marks"?<hr/>:<></>}</li>
+          <li onClick={()=>{setMenu("Marks")}}><img src={logo2} alt="Marks Icon" /><Link style={{textDecoration:'none'}} to='/Admin-Marks'>Marks</Link>{menu==="Marks"?<hr/>:<></>}</li>
           <li onClick={()=>{setMenu("Uploads")}}><img src={logo3} alt="Uploads Icon" /><Link style={{textDecoration:'none'}} to='/Uploads'>Uploads</Link>{menu==="Uploads"?<hr/>:<></>}</li>
           <li onClick={()=>{setMenu("Notices")}}><img src={logo4} alt="Notices Icon" /><Link style={{textDecoration:'none'}} to='/Notices'>Notices</Link>{menu==="Notices"?<hr/>:<></>}</li>
           <li onClick={()=>{setMenu("Manage Users")}}><img src={logo6} alt="User Icon" /><Link style={{textDecoration:'none'}} to='/ManageUser'>Manage User</Link>{menu==="ManageUser"?<hr/>:<></>}</li>
