@@ -9,6 +9,7 @@
 .nav-logo{
     font-family: outfit;
     font-size: 72px;
+    
     margin-top: 120px;
     font-weight: 900;
     justify-content: center;
@@ -20,6 +21,7 @@
     justify-content: space-around;
     margin-top: 5px;
     margin-left: 20px;
+   
     font-size: 18px;
     font-weight: 500;
     gap: 80px;
@@ -33,6 +35,7 @@
     margin-top: 10px;
     margin-left: 20px;
     font-size: 18px;
+     text-decoration: none;
     font-weight: 500;
     gap: 80px;
   }

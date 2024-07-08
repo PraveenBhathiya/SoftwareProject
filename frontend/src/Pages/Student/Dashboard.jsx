@@ -5,7 +5,7 @@ import prof from '../../Assets/profile.png';
 import '../../CSS/Dashboard.css';
 import StuNoticePanel from '../Student/StuNoticePanel.jsx';
 import StudentSidebar from './Sidebar.jsx';
-import {Logo1} from '../../Styles/styles.js';
+
 
 const StudentDashBoard = () => {
     const [menu, setMenu] = useState("Dashboard");

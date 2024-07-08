@@ -24,33 +24,7 @@ useEffect(()=>{
 },[])
 
   return (
-<<<<<<< HEAD
-    <div className='home-content'>
-        <div className="sidebar">
-          <img src={rulogo} alt="Logo" class="logo"/>
-              <ul className="nav-links">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="/about-us">About us</a></li>
-                  <li><a href="/contact-us">Contact us</a></li>
-               </ul>
-        </div>
 
-
-         <Navbar>
-            <ButtonsContainer>
-              <LoginButton onClick={handleLoginClick}>Sign In</LoginButton>
-              <GuestButton onClick={handleGuestClick}>Guest Mode </GuestButton>
-            </ButtonsContainer>
-         </Navbar>
-         <HomeContainer>
-             <UniInfo>
-              <Title>Welcome to DEIE UGP Management System</Title>
-              <Logo1 src= {dep} alt=''/><br/>
-              
-              
-             </UniInfo>
-         </HomeContainer>
-=======
     <div>
         <Background playStatus={playStatus} heroCount={heroCount}/>
         <Navbar1/>
@@ -62,7 +36,7 @@ useEffect(()=>{
           playStatus={playStatus}
         
         />
->>>>>>> 5832fcbc535b67ed0a90b2c967e6bdea71ca21b2
+
 
     </div>
   )
