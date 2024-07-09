@@ -24,6 +24,7 @@ useEffect(()=>{
 },[])
 
   return (
+
     <div>
         <Background playStatus={playStatus} heroCount={heroCount}/>
         <Navbar1/>
@@ -35,6 +36,7 @@ useEffect(()=>{
           playStatus={playStatus}
         
         />
+
 
     </div>
   )

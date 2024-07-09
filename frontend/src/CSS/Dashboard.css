@@ -50,15 +50,7 @@
 }
 /*  need edits here  */
 
-.dep{
-  display: flex;
-  align-items: center;
-  width: 900px;
-  height: 580px;
-  background:  rgb(216, 232, 240);
-  justify-content: center;
-  border-radius: 30px;
-}
+
 .depart{
   display: flex;
   width: 870px;
