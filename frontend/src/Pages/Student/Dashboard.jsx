@@ -19,7 +19,14 @@ const StudentDashBoard = () => {
             <StudentSidebar/>
                 <div className='leftPanel'>
                     <div className="verticalLine"></div> {/* Thin vertical line */}
-                    <StuNoticePanel /> {/* Notice panel component */}
+
+                    <StuNoticePanel>
+                    <div className="right-aligned-container">
+                        <div className="text-right">
+                            This text is aligned to the right.
+                        </div>
+                    </div>   
+                    </StuNoticePanel>  {/* Notice panel component */}
                 </div>
                 <div className='profile' onClick={() => { setMenu("Dashboard") }}>
                     <img src={prof} alt="" />

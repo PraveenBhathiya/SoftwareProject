@@ -3,6 +3,7 @@ import '../../CSS/NoticePanel.css';
 
 const NoticePanel = () => {
     return (
+        
         <div className="noticePanel">
             <h3>Notices</h3>
             <div className="noticeSpace">

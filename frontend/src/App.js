@@ -18,6 +18,8 @@ import AdminRegister from './Components/AdminRegister.jsx';
 import Aboutus from './Components/Aboutus.jsx';
 import Contactus from './Components/Contactus.jsx';
 
+import ManageUser from './Pages/Admin/ManageUser.jsx';
+
 import TeacherMarks from './Pages/Teacher/Marks.jsx';
 import Teacher_Uploads from './Pages/Teacher/Uploads.jsx';
 
@@ -64,6 +66,9 @@ function App() {
           <Route exact path='/student/dashboard' element={< StudentDashboard />} />
           <Route exact path='/teacher/dashboard' element={< TeacherDashBoard />} /> 
           <Route exact path='/admin/dashboard' element={< AdminDashBoard />} /> 
+
+          <Route exact path='/admin/manage-user' element={< ManageUser />} /> 
+
 
           <Route exact path='/teacher/sidebar/marks' element={< TeacherMarks />} />
           <Route exact path='/Teacher-Uploads' element={< Teacher_Uploads />} />

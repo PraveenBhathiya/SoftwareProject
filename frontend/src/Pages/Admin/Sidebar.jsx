@@ -26,7 +26,7 @@ export const AdminSidebar = ({children}) => {
           <li onClick={()=>{setMenu("Marks")}}><img src={logo2} alt="Marks Icon" /><Link style={{textDecoration:'none'}} to='/Admin-Marks'>Marks</Link>{menu==="Marks"?<hr/>:<></>}</li>
           <li onClick={()=>{setMenu("Uploads")}}><img src={logo3} alt="Uploads Icon" /><Link style={{textDecoration:'none'}} to='/Uploads'>Uploads</Link>{menu==="Uploads"?<hr/>:<></>}</li>
           <li onClick={()=>{setMenu("Notices")}}><img src={logo4} alt="Notices Icon" /><Link style={{textDecoration:'none'}} to='/Notices'>Notices</Link>{menu==="Notices"?<hr/>:<></>}</li>
-          <li onClick={()=>{setMenu("Manage Users")}}><img src={logo6} alt="User Icon" /><Link style={{textDecoration:'none'}} to='/ManageUser'>Manage User</Link>{menu==="ManageUser"?<hr/>:<></>}</li>
+          <li onClick={()=>{setMenu("Manage Users")}}><img src={logo6} alt="User Icon" /><Link style={{textDecoration:'none'}} to='/admin/manage-user'>Manage User</Link>{menu==="ManageUser"?<hr/>:<></>}</li>
           <li onClick={()=>{setMenu("Manage Modules")}}><img src={logo7} alt="Module Icon" /><Link style={{textDecoration:'none'}} to='/ManageModules'>Manage Modules</Link>{menu==="ManageModules"?<hr/>:<></>}</li>
           <li onClick={()=>{setMenu("Settings")}}><img src={logo5} alt="Settings Icon" /><Link style={{textDecoration:'none'}} to='/Settings'>Settings</Link>{menu==="Settings"?<hr/>:<></>}</li>
         </ul>

@@ -50,7 +50,6 @@
 }
 /*  need edits here  */
 
-
 .depart{
   display: flex;
   width: 870px;
@@ -121,4 +120,19 @@
   width: 1px;
   height: 100vh;
   background-color: #bfc4c7;
+}
+
+.right-aligned-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns items to the right */
+  align-items: center; /* Centers items vertically */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  background-color: #f0f0f0; /* Background color for visibility */
+  padding: 20px; /* Optional padding */
+}
+
+.text-right {
+  font-size: 20px; /* Example font size */
+  color: #333; /* Example text color */
 }
