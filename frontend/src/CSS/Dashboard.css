@@ -53,19 +53,11 @@
 .dep{
   display: flex;
   align-items: center;
-<<<<<<< HEAD
-  width: 100%;
-  height: auto;
-  background: rgb(216, 232, 240);
-  border-radius: 2px;
-  overflow: hidden;
-=======
   width: 900px;
   height: 580px;
   background:  rgb(216, 232, 240);
   justify-content: center;
   border-radius: 30px;
->>>>>>> 5832fcbc535b67ed0a90b2c967e6bdea71ca21b2
 }
 .depart{
   display: flex;
