@@ -4,6 +4,8 @@ import styled from 'styled-components';
 export const AnnouncementContainer = styled.div`
   display: flex;
   padding-left: 240px;
+  background-color: #EFF4FF; 
+
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
