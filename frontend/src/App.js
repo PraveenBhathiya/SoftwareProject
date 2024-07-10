@@ -46,7 +46,7 @@ function App() {
     
      
       <Router>
-        <GlobalStyle />
+       <GlobalStyle />
         <div className="web-container">
         
           <div className="web-content">
