@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../CSS/AdminTools.css';
+import AdminSidebar from '../Admin/Sidebar.jsx';
 
 const ManageUser = () => {
   const [users, setUsers] = useState([]);
@@ -72,14 +73,17 @@ const ManageUser = () => {
 
   return (
     <div className="manageUserContainer">
-      <h2 className="title">User Information</h2>
+      <AdminSidebar/>
+      <h2>User Information</h2>
+      <div className="form">
+        <div className="topic">User Information for Students</div>
       <button className="toggleButton" onClick={handleButtonClick}>
         {showUsers ? 'Hide User List' : 'Show User List'}
       </button>
       {showUsers && (
         <div className="userList">
           {users.length > 0 ? (
-            users.map((user) => (
+            users.map((user) => ( 
               <div key={user._id} className="userInfo">
                 <div className="userDetail">
                   <span className="label">Username:</span>
@@ -157,6 +161,8 @@ const ManageUser = () => {
           <button className="deleteButton" onClick={() => handleDeleteUser(searchedUser._id)}>Delete User</button>
         </div>
       )}
+      </div>
+      
     </div>
   );
 };
