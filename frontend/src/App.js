@@ -39,6 +39,8 @@ import Admin_Marks from './Pages/Admin/Marks.jsx';
 
 import Student_Uploads from './Pages/Student/Uploads.jsx';
 
+
+
 function App() {
   return (
     
@@ -89,6 +91,7 @@ function App() {
           <Route exact path='/Admin-Marks' element={< Admin_Marks />} />
 
           <Route exact path='/Student_Uploads' element={< Student_Uploads />} />
+          
 
         </Routes>
           </div>

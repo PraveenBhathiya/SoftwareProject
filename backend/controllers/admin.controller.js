@@ -20,11 +20,10 @@ export const getStudent = async (req, res) => {
       const student = await Student.findOne({ regNo });
     
       if (!student) {
-        return res.status(404).json({ error: 'No such student' });
+        return res.status(404).json({ message: 'Student not found' });
       }
-    
       res.status(200).json(student);
     } catch (error) {
-      errorHandler(error, req, res);
+      errorHandler(res, error);
     }
   }
