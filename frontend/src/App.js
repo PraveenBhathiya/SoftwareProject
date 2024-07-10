@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home.jsx';
 import './index.css';
+import {GlobalStyle} from './Styles/styles.js';
 
 import StudentDashboard from './Pages/Student/Dashboard.jsx';
 import TeacherDashBoard from './Pages/Teacher/Dashboard.jsx';
@@ -45,6 +46,7 @@ function App() {
     
      
       <Router>
+       <GlobalStyle />
         <div className="web-container">
         
           <div className="web-content">

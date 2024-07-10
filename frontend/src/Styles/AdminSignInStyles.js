@@ -6,7 +6,7 @@ export const AdminSignInContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgb(226, 242, 250);
+  background-color: #EFF4FF; 
   min-height: 100vh; 
   
 `;

@@ -1,49 +1,48 @@
+
 // ChooseUserStyles.js
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
-
 export const ChooseUserContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(226, 242, 250); 
+  background-color: #EFF4FF;
   text-align: center;
-
   @media screen and (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between; 
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
-
 export const UserSection = styled.div`
-  text-align: center; 
+  text-align: center;
   padding-top: 20px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #EFF4FF;
   @media screen and (min-width: 768px) {
-    padding-top: 0;
+    padding-top: 20px;
     margin: 20px;
-    text-align: left;
   }
 `;
-
 export const Title = styled.h2`
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: #2648c3; 
-
+  color: #2648c3;
   @media screen and (max-width: 768px) {
     font-size: 20px;
   }
 `;
-
 export const Button = styled(Link)`
-  background-color: #2563EB; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2563EB;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -52,68 +51,40 @@ export const Button = styled(Link)`
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease;
-
   &:hover {
-    background-color: #1E4BAF; 
+    background-color: #1E4BAF;
   }
-
   @media screen and (max-width: 768px) {
     padding: 8px 16px;
     font-size: 14px;
   }
 `;
-
-///////////////////
-
-
-
 export const ChooseGuestContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width:100%;  
-  background-color: rgb(226, 242, 250);
-  padding: 20px;  
-
+  width: 100%;
+  background-color: #EFF4FF;
+  padding: 20px;
   @media screen and (min-width: 500px) {
     align-items: flex-start;
   }
 `;
-
-/*
-export const ProjectContainer = styled.div`
-  width: 100%;  
-  margin-bottom: 20px; 
-  display: flex;
-  justify-content: center; 
-  img {
-    width: 50%;
-    height: auto; 
-    display: block; 
-    margin: 0 auto;
-  }
-
-`;
-*/
-
-
 export const ProjectContainer = styled.div`
   position: relative;
   width: 50%;
   margin: 0 auto 20px;
   text-align: center;
-
+  background-color: #EFF4FF;
   &:hover .overlay {
     opacity: 1;
   }
-
   img {
     display: block;
     width: 100%;
     height: auto;
     transition: transform 0.3s ease-out;
   }
-
   .overlay {
     position: absolute;
     top: 0;
@@ -128,7 +99,6 @@ export const ProjectContainer = styled.div`
     align-items: center;
     text-align: center;
   }
-
   .text {
     color: white;
     font-size: 40px;
