@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import '../../CSS/AdminTools.css';
+import React from 'react'
 
 const ManageUser = () => {
   const [users, setUsers] = useState([]);
@@ -160,4 +159,4 @@ const ManageUser = () => {
   );
 };
 
-export default ManageUser;
+export default ManageUser
