@@ -49,7 +49,7 @@ export const Topic = styled.div`
 
 
 export const InputField = styled.input`
-  width: 80%;
+  width: 93.5%;
   padding: 15px;
   gap:50px;
   margin-bottom:2px;
