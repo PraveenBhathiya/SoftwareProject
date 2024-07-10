@@ -27,7 +27,7 @@ const ModuleCreate = () => {
 
          setLoading(true);
          setErrorMessage(null);
-         const res = await fetch("http://localhost:4000/api/modules/create", { // Ensure your backend endpoint is correct
+         const res = await fetch("http://localhost:4000/api/admin/createModule", { 
             method: "POST",
             headers: {
                "Content-Type": "application/json",
