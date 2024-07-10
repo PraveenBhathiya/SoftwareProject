@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react';
+import '../../CSS/AdminTools.css';
 
 const ManageUser = () => {
   const [users, setUsers] = useState([]);
@@ -29,6 +30,7 @@ const ManageUser = () => {
       const response = await fetch(`http://localhost:4000/api/admin/getStudent/${searchRegNo}`);
       const data = await response.json();
       setSearchedUser(data);
+      setEditUser(data); // Initialize editUser with the fetched data
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
@@ -110,7 +112,7 @@ const ManageUser = () => {
           value={searchRegNo}
           onChange={(e) => setSearchRegNo(e.target.value)}
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className="searchButton" onClick={handleSearch}>Search</button>
       </div>
       {searchedUser && (
         <div className="searchedUserInfo">
@@ -120,7 +122,7 @@ const ManageUser = () => {
             <input
               className="value"
               name="username"
-              value={editUser ? editUser.username : searchedUser.username}
+              value={editUser ? editUser.username : ''}
               onChange={handleInputChange}
             />
           </div>
@@ -129,7 +131,7 @@ const ManageUser = () => {
             <input
               className="value"
               name="regNo"
-              value={editUser ? editUser.regNo : searchedUser.regNo}
+              value={editUser ? editUser.regNo : ''}
               onChange={handleInputChange}
             />
           </div>
@@ -138,7 +140,7 @@ const ManageUser = () => {
             <input
               className="value"
               name="email"
-              value={editUser ? editUser.email : searchedUser.email}
+              value={editUser ? editUser.email : ''}
               onChange={handleInputChange}
             />
           </div>
@@ -147,16 +149,16 @@ const ManageUser = () => {
             <input
               className="value"
               name="batch"
-              value={editUser ? editUser.batch : searchedUser.batch}
+              value={editUser ? editUser.batch : ''}
               onChange={handleInputChange}
             />
           </div>
-          <button onClick={handleUpdateUser}>Update User</button>
-          <button onClick={() => handleDeleteUser(searchedUser._id)}>Delete User</button>
+          <button className="updateButton" onClick={handleUpdateUser}>Update User</button>
+          <button className="deleteButton" onClick={() => handleDeleteUser(searchedUser._id)}>Delete User</button>
         </div>
       )}
     </div>
   );
 };
 
-export default ManageUser
+export default ManageUser;
