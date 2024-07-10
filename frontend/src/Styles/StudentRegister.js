@@ -31,7 +31,7 @@ export const FormContainer = styled.form`
   
   width: 100%;
   max-width: 500px; 
-  height: 500px;
+  height: 470px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -42,14 +42,14 @@ export const Topic = styled.div`
   Font-size: 30px;
   font-weight:800;
   color: #2648c3;
-  margin-top: 50px;
+  margin-top: 15px;
   
 
 `;
 
 
 export const InputField = styled.input`
-  width: 80%;
+  width: 95%;
   padding: 10px;
   gap:50px;
   margin-bottom:2px;
@@ -61,7 +61,7 @@ export const InputField = styled.input`
 export const SubmitButton = styled(Link)`
   width: 30%;
   padding: 8px;
-  margin-top: 30px;
+  margin-top: 55px;
   border: none;
   border-radius: 8px;
   background-color:#3c36ea;
