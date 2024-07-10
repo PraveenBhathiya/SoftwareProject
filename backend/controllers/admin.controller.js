@@ -61,3 +61,58 @@ export const getStudent = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
+
+ export const getAllTeachers = async (req, res) => {
+    try {
+      const teachers = await Teacher.find();
+      res.json(teachers);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+
+  export const getTeacher = async (req, res) => {
+    const { username } = req.params;
+    try {
+      const teacher = await Teacher.findOne({ username });
+      if (teacher) {
+        res.json(teacher);
+      } else {
+        res.status(404).json({ message: 'Teacher not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+
+  export const updateTeacher = async (req, res) => {
+    const { username } = req.params;
+    const { email } = req.body;
+    try {
+      const teacher = await Teacher.findById(username);
+      if (teacher) {
+        teacher.username = username || teacher.username;
+        teacher.email = email || teacher.email;
+        const updatedTeacher = await teacher.save();
+        res.json(updatedTeacher);
+      } else {
+        res.status(404).json({ message: 'Teacher not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+
+  export const deleteTeacher = async (req, res) => {
+    const { username } = req.params;
+    try {
+      const teacher = await Teacher.findByIdAndDelete(username);
+      if (teacher) {
+        res.json({ message: 'Teacher deleted successfully' });
+      } else {
+        res.status(404).json({ message: 'Teacher not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };

@@ -1,6 +1,21 @@
 /* styles.js */
-import styled from 'styled-components';
+import styled,{ createGlobalStyle } from 'styled-components';
 import { Link } from 'react-router-dom';
+
+
+export const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #EFF4FF; 
+  }
+`;
+
 
 export const Navbar = styled.nav`
   position: fixed;
