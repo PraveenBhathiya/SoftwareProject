@@ -9,6 +9,8 @@ export const ChooseUserContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin-top:-10px;
+  padding: 0;
   background-color: #EFF4FF;
   text-align: center;
   @media screen and (min-width: 768px) {
@@ -22,16 +24,20 @@ export const UserSection = styled.div`
   padding-top: 20px;
   display: flex;
   flex-direction: column;
+  gap:-15px;
+  margin-bottom:10px;
+  justify-content:space-between;
   align-items: center;
   background-color: #EFF4FF;
   @media screen and (min-width: 768px) {
-    padding-top: 20px;
+    padding-top: 10px;
     margin: 20px;
   }
 `;
 export const Title = styled.h2`
   font-size: 24px;
   font-weight: bold;
+  margin: 200px;
   margin-bottom: 20px;
   color: #2648c3;
   @media screen and (max-width: 768px) {
