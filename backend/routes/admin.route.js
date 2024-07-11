@@ -1,6 +1,6 @@
 import express from 'express';
 import {getAllStudents, getStudent, updateStudent, deleteStudent, getAllTeachers, getTeacher, updateTeacher, deleteTeacher} from '../controllers/admin.controller.js';
-import { createModule } from '../controllers/module.controller.js';
+import { createBatch, deleteBatch } from '../controllers/batch.controller.js';
 
 const router = express.Router();
 
@@ -14,6 +14,7 @@ router.get('/getTeacher/:username', getTeacher);
 router.put('/updateTeacher/:username', updateTeacher);
 router.delete('/deleteTeacher/:username', deleteTeacher);
 
-router.post('/createModule', createModule);
+router.post('/createBatch', createBatch);
+router.post('/deleteBatch/:id', deleteBatch);
 
 export default router;

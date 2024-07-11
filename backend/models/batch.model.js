@@ -1,20 +1,16 @@
 import mongoose from 'mongoose';
 
-const moduleSchema = new mongoose.Schema(
+const batchSchema = new mongoose.Schema(
     {
-        moduleName:{
+        batchName:{
             type: String,
             required: true,
             unique: true,
         },
-        moduleCode: {
+        batchCode: {
             type: String,
             required: true,
             unique: true,
-        },
-        batch:{
-            type: String,
-            required: true,
         },
     },
     {
@@ -23,7 +19,7 @@ const moduleSchema = new mongoose.Schema(
 
 );
 
-const Module = mongoose.model("Module", moduleSchema);
+const Batch = mongoose.model("Batch", batchSchema);
 
 
-export {Module};
+export {Batch};
