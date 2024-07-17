@@ -5,22 +5,25 @@ import { Link } from 'react-router-dom';
 export const StudentSignInContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #EFF4FF; 
+  background: #602cdd;  
+  background: -webkit-linear-gradient(to right, #602cdd, #562dce, #7960c7); 
+  background: linear-gradient(to right, #602cdd, #562dce, #7960c7);
+  }
+  
   min-height: 100vh; 
 `;
 export const Title = styled.div`
   Font-size: 40px;
-  color: #2648c3;
-  margin-top: 50px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 80px;
   font-weight: bold; 
+  
 
 `;
 export const Logo = styled.div`
-  width: 70px;
-  height: 60px;
-  align-item: center;
-
+  flex: 1;
+  
   
 `;
 
@@ -35,13 +38,13 @@ export const FormContainer = styled.form`
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: rgb(210, 232, 270);
+  
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 export const Topic = styled.div`
   Font-size: 30px;
   font-weight:800;
-  color: #2648c3;
+  color: #fff;
   margin-top: 50px;
   
 
@@ -49,23 +52,32 @@ export const Topic = styled.div`
 
 
 export const InputField = styled.input`
-  width: 93.5%;
-  padding: 15px;
+  width: 90%;
+  padding: 10px;
   gap:50px;
   margin-bottom:2px;
   margin-top:50px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  border-radius: 10px;
+  color: #fff;
+  outline: none;
+  
+  &::placeholder {
+    color: #fff; /* Placeholder text color */
+  }
+
 `;
 
 export const SubmitButton = styled(Link)`
-  width: 20%;
+  width: 15%;
   padding: 12px;
   margin-top: 80px;
   border: none;
-  border-radius: 8px;
-  background-color:#3c36ea;
+  border-radius: 18px;
+  background-color:orange;
   color: white;
+  font-weight:600;
   font-size: 18px;
   text-decoration: none;
   text-align: center;
@@ -83,9 +95,9 @@ export const SubmitButton = styled(Link)`
 export const Regs = styled(Link)`
   Font-size: 15px;
   font-weight:500;
-  color:black ;
+  color:white ;
   margin-top: 10px;
-  
+  text-decoration:none;
 
   
 `;
