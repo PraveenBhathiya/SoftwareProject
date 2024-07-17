@@ -1,8 +1,11 @@
+
+
+
 .manageUserContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
     
    
      /* Increased width to accommodate the new elements */
@@ -21,6 +24,7 @@
     align-items: center;
     padding: 20px;
     margin: 20px -10px;
+
   }
   
   h2 {
