@@ -67,6 +67,58 @@
   }
 }
 
+/*New DashBoard */
+
+
+.container{
+  max-width: 85%;
+  margin: auto;
+  
+}
+
+.FlexSB{
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: rgba(255,255,255,0.3);
+  color: #8138d3;
+  transition: 0.5s;
+}
+
+.icon:hover{
+  cursor: pointer;
+  background-color: #8138d3;
+  color: #fff;
+}
+
+#heading{
+  text-align: center;
+  padding: 40px 0;
+}
+
+#heading h3{
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #7fd0f0;
+  text-transform: uppercase;
+}
+
+#heading h1{
+  font-size: 45px;
+  margin: 20px 0;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+
+
 
 
 

@@ -10,12 +10,13 @@ export const StudentSignInContainer = styled.div`
   background: linear-gradient(to right, #602cdd, #562dce, #7960c7);
   }
   
-  min-height: 100vh; 
+  width: 100vw;
+  height:100vh; 
 `;
 export const Title = styled.div`
   Font-size: 40px;
   color: #fff;
-  margin-top: 10px;
+  margin-top: 50px;
   margin-bottom: 80px;
   font-weight: bold; 
   

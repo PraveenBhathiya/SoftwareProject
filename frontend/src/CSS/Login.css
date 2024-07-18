@@ -4,6 +4,9 @@
     background: linear-gradient(to right, #602cdd, #562dce, #7960c7);
     width: 100vw;
     height: 100vh;
+    margin-top: -40px;
+    margin-left: -20px;
+    margin-bottom: 20px
   }
   
   .image-container{
