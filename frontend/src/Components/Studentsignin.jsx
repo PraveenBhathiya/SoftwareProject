@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StudentSignInContainer, Title, Logo, FormContainer, Topic, SubmitButton, Regs } from '../Styles/StudentSignInStyles';
+import { StudentSignInContainer, Title, Logo, FormContainer, Topic, SubmitButton, Regs, SignInContainer,ImageContainer, StyledImage, LoginFormContainer } from '../Styles/StudentSignInStyles';
 import LoginImage from '../Assets/Login-rm.png';
 import { useNavigate } from 'react-router-dom';
 import { Alert} from '@mui/material';
@@ -53,32 +53,6 @@ const Studentsignin = () => {
     }
   };
 
-  // Styled components
-  const SignInContainer = styled.div`
-    display: flex;
-    height: 100vh;
-  `;
-
-  const ImageContainer = styled.div`
-    flex: 1;
-    
-  `;
-
-  const StyledImage = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  `;
-
-  const LoginFormContainer = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    
-  `;
 
   return (
     <div className="sign-body">
@@ -90,10 +64,10 @@ const Studentsignin = () => {
         <Title>DEIE UGP Management System</Title>
         <FormContainer>
           <Topic>Login as Student</Topic>
-          <input className='input1'
+          <input className = 'input1'
             type='text'
             placeholder='Username'
-            id='password'
+            id='username'
             onChange={handleChange}
             required
           />
@@ -113,12 +87,14 @@ const Studentsignin = () => {
           </SubmitButton>
           <Regs to="/student/student-register" type='button'>Register</Regs>
         </FormContainer>
-        {errorMessage && (
+
+      {errorMessage && (
           <Alert sx={{ mt: 5 }} severity="error" icon={<ErrorIcon />}>
             {errorMessage}
           </Alert>
         )}
       </LoginFormContainer>
+
     </SignInContainer>
     </div>
     

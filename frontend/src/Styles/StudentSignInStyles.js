@@ -101,3 +101,31 @@ export const Regs = styled(Link)`
 
   
 `;
+
+
+  // Styled components
+  export const SignInContainer = styled.div`
+    display: flex;
+    height: 100vh;
+  `;
+
+  export const ImageContainer = styled.div`
+    flex: 1;
+    
+  `;
+
+ export const StyledImage = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  `;
+
+ export const LoginFormContainer = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+  `;
