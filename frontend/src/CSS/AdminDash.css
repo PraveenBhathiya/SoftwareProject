@@ -35,7 +35,8 @@
 
 .Profi{
     color: #1D58D8;
-    font-size: 18px; 
+    font-size: 18px;
+    font-family: "Poppins", sans-serif; 
 }
 
 .Notification-container{
@@ -48,14 +49,13 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    font-family: "Poppins", sans-serif;
-    color: #1D58D8;
 }
 
 .Noti{
     color: #1D58D8;
     font-size: 18px;
     margin-top: 10px;
+    font-family: "Poppins", sans-serif;
 }
 
 .Notification img{
