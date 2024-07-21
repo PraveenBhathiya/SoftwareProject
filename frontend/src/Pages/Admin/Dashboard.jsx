@@ -1,57 +1,62 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import dep from '../../Assets/department.png';
-import prof from '../../Assets/profile.png';
-import '../../CSS/Dashboard.css';
+import dep from '../../Assets/rm-dash.png';
+import prof from '../../Assets/iprofile.png';
 import StuNoticePanel from '../Student/StuNoticePanel.jsx';
 import AdminSidebar from '../Admin/Sidebar.jsx';
+import '../../CSS/AdminDash.css';
+import adminlogo from '../../Assets/rm-dash.png';
+import logo4 from '../../Assets/imessages.png';
 
 const AdminDashBoard = () => {
     const [menu, setMenu] = useState("Dashboard");
 
+
     return (
-        <div className='dashContainer'>
-            
-                <AdminSidebar/>
-            
-            <div className='mainContent'>
-                <div className='leftPanel'>
-                    <div className="verticalLine"></div> {/* Thin vertical line */}
-                    <StuNoticePanel /> {/* Notice panel component */}
-                </div>
-                <div className='profile' onClick={() => { setMenu("Dashboard") }}>
-                    <img src={prof} alt="" />
-                    <Link style={{ textDecoration: 'none' }} to='/profile'>Profile</Link>
-                    {menu === "Profile" ? <hr /> : null}
-                </div>
-                <div className="hi">Hi, Good Morning!</div>
-                <div className="title">
-                    <h2>Welcome to DEIE UGP Management System</h2>
-                </div>
-                <div className="dep">
-                    <img src={dep} alt="" className="depart" />
-                </div>
-                <div className="p">Available Courses</div>
-                <div className="courses">
-                    <div className="e22">
-                        <button className="e22-btn">e22</button>
-                        <p>Final Year Undergraduate Project</p>
+       <div className="admin-main">
+        <AdminSidebar/>
+        <div className="profile-container">
+                    <div className='profile' onClick={() => { setMenu("Dashboard") }}>
+                        <img src={prof} alt="" />
+                        <Link className='Profi' to='/profile' style={{ textDecoration: 'none' }}>Profile</Link>
+                        {menu === "Profile" ? <hr /> : null}
                     </div>
-                    <div className="e21">
-                        <button className="e21-btn">e21</button>
-                        <p>Final Year Undergraduate Project</p>
+        </div>
+        <div className="Notification-container">
+                    <div className='Notification' onClick={() => { setMenu("Dashboard") }}>
+                        <img src={logo4} alt="" />
+                        <Link className='Noti' to='/Notices'  style={{ textDecoration: 'none' }}>Notifications</Link>
+                        {menu === "Notices" ? <hr /> : null}
                     </div>
-                    <div className="e20">
-                        <button className="e20-btn">e20</button>
-                        <p>Final Year Undergraduate Project</p>
-                    </div>
-                    <div className="e19">
-                        <button className="e19-btn">e19</button>
-                        <p>Final Year Undergraduate Project</p>
-                    </div>
+        </div>
+            <div className="topic-section">
+                <div className='admin-hi'>Hi, Good Morning!</div>
+                <div className='admin-welcome'>Welcome to DEIE UGP Management <br/>System</div>
+            </div>
+
+            <div className="admin-content">
+                <div className="admin-module">
+                    
+                        <div className='admin-title1'>View your marks</div>
+                        <div className="frame1">
+                            <button className="btn-1">e22</button>
+                            <p>Final Year Undergraduate Projects</p>
+                        </div>
+
+                        <div className='admin-title2'>Upload Your Progress</div>
+                        <div className="frame2">
+                            <button className="btn-2">e22</button>
+                            <p>Final Year Undergraduate Projects</p>
+                        </div>
+                    
+                </div>
+                <div className="admin-img">
+                    <img src={adminlogo} alt="" />
                 </div>
             </div>
-        </div>
+
+       </div>
+    
     );
 };
 

@@ -1,5 +1,8 @@
+
+
 .dashContainer {
   display: flex;
+  flex-direction: column;
   height: 100vh; 
   margin-left: 20px;
 }
@@ -16,6 +19,11 @@
   flex-direction: column;
   
 }
+
+.center-content{
+  display: flex;
+  flex-direction: column;
+}
 .hi{
     display: flex;
     font-size: 15px;
@@ -27,7 +35,8 @@
 .title h2{
     display: flex;
     font-size: 32px;
-    font-weight: 900;
+    font-family: "DM Serif Display", serif;
+    font-weight: 500;
     color: #2648c3;
     margin-left: 560px;
 }
@@ -57,10 +66,11 @@
 
 .depart{
   display: flex;
-  width: 870px;
-  height: 400px;
+  width: 658px;
+  height: 696px;
   border-radius: 15px;
-  margin-top: 15px;
+  margin-left: 1051px;
+  margin-top: 496px;
   margin-bottom: 15px;
   
 }
@@ -74,18 +84,19 @@
 .courses {
   margin-top: 20px;
   display: grid;
+
   grid-template-columns: repeat(2, 0.5fr);
   gap: 10px;
 }
 
-.e22, .e21, .e20, .e19 {
+.coursee22{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(216, 232, 240);
+  background-color: #EFF4FF;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 280px;
   height: 50px;
   box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
@@ -100,21 +111,21 @@
   padding: 0;
 }
 
-.e22-btn, .e21-btn, .e20-btn, .e19-btn {
-  background-color: #3a3ab8;
-  color: white;
+.course-btn-e22-btn{
+  background-color: #2563EB;
+  color:white;
   border: none;
   text-align: center;
   padding: 5px 35px;
-  margin-left: -210px;
+  margin-left: -180px;
   border-radius: 15px;
   cursor: pointer;
-  margin-bottom: 10px;
-  margin-top: 12px;
+  margin-bottom: 2px;
+  margin-top: 20px;
 }
 
 .e22-btn:hover, .e21-btn:hover, .e20-btn:hover, .e19-btn:hover {
-  background-color: #50a3da;
+  background-color: #75bceb;
 }
 
 .verticalLine {
@@ -140,4 +151,9 @@
 .text-right {
   font-size: 20px; /* Example font size */
   color: #333; /* Example text color */
+}
+
+.box1{
+  display: flex;
+  
 }

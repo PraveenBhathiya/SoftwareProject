@@ -5,88 +5,79 @@
     width: 190px;
     height: 100vh; 
     padding: 20px;
-    background: #602cdd;  
-    background: -webkit-linear-gradient(to right, #602cdd, #562dce, #7960c7); 
-    background: linear-gradient(to right, #602cdd, #562dce, #7960c7);
-    color: #fff;
-  }
-  
-  .ruhuna-logo {
+    background: EFF4FF;  
+}
+
+.ruhuna-logo {
     margin-bottom: 20px;
-  }
-  
-  .ruhuna-logo img {
+}
+
+.ruhuna-logo img {
     height: 200px; 
-  }
-  
-  .panel {
+}
+
+.panel {
     width: 100%; 
-  }
-  
-  .nav-menu {
+}
+
+.nav-menu {
     list-style-type: none;
     padding: 0;
     margin: 0;
     width: 100%;
-     
-    
-  }
-  
-  .nav-menu li {
+}
+
+.nav-menu li {
     display: flex;
     align-items: center;
     padding: 10px 0;
-    font-size: 18px;
-    color: #ddd42c;
+    font-size: 16px;
     transition: transform 0.2s, background-color 0.2s;
     width: 100%; 
     gap: 5px;
     position: relative;
-  }
-  
-  .nav-menu li img {
+   
+}
+
+.nav-menu li img {
     margin-right: 10px;
     margin-bottom: 10px;
     width: 24px;
     height: 24px;
-    
-    
-  }
-  
-  .nav-menu li::after {
+    color: #2563ea;
+}
+
+.nav-menu li::after {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
     width: 3px; 
     height: 100%; 
-    background-color: rgb(108, 133, 255); 
+    background-color: #2563ea;
     border-radius: 15px; 
     opacity: 0; 
     transition: opacity 0.2s; 
-  }
-  
-  .nav-menu li:hover::after {
-    opacity: 1; 
-  }
-  
-  .nav-menu hr{
+}
+
+.nav-menu li:hover::after {
+    opacity: 1;
+    
+}
+
+.nav-menu hr {
     border: none;
     width: 80%;
     height: 3px;
-    
-  }
-  
-  .nav-menu li:hover {
-    background-color: #7e57d8;
-    
+}
+
+.nav-menu li:hover {
+    background-color: #EFF4FF;
     cursor: pointer;
     width: 200px;
     height: 30px;
     margin-left: 0;
     justify-content: center;
-    transform: translateX(5px); 
-  }
-  
-  
-  
+    transform: translateX(3px); 
+    color:#FFCC04;  
+}
