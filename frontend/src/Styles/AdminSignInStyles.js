@@ -12,19 +12,16 @@ export const AdminSignInContainer = styled.div`
 `;
 export const Title = styled.div`
   Font-size: 40px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  text-align: center;
-  color: #2648c3;
+  color: #fff;
   margin-top: 50px;
+  margin-bottom: 80px;
+  font-weight: bold; 
   
 
 `;
 export const Logo = styled.div`
-  width: 70px;
-  height: 60px;
-  align-item: center;
-
+  flex: 1;
+  
   
 `;
 
@@ -37,16 +34,15 @@ export const FormContainer = styled.form`
   max-width: 500px; 
   height: 500px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #1952fc;
   border-radius: 8px;
-  background-color: rgb(210, 232, 270);
+  
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 export const Topic = styled.div`
   Font-size: 30px;
-  font-family: 'Poppins', sans-serif;
   font-weight:800;
-  color: #2648c3;
+  color: #fff;
   margin-top: 50px;
   
 
@@ -54,23 +50,32 @@ export const Topic = styled.div`
 
 
 export const InputField = styled.input`
-  width: 93.5%;
-  padding: 15px;
+  width: 90%;
+  padding: 10px;
   gap:50px;
   margin-bottom:2px;
   margin-top:50px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  border-radius: 10px;
+  color: #fff;
+  outline: none;
+  
+  &::placeholder {
+    color: #fff; /* Placeholder text color */
+  }
+
 `;
 
 export const SubmitButton = styled(Link)`
-  width: 20%;
+  width: 15%;
   padding: 12px;
   margin-top: 80px;
   border: none;
-  border-radius: 8px;
-  background-color:#3c36ea;
+  border-radius: 18px;
+  background-color:#0764f0;
   color: white;
+  font-weight:600;
   font-size: 18px;
   text-decoration: none;
   text-align: center;
@@ -78,7 +83,7 @@ export const SubmitButton = styled(Link)`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #6294df;
+    background-color: #08affc;
   }
   
   @media screen and (max-width: 768px) {
@@ -88,9 +93,35 @@ export const SubmitButton = styled(Link)`
 export const Regs = styled(Link)`
   Font-size: 15px;
   font-weight:500;
-  color:black ;
+  color:white ;
   margin-top: 10px;
-  
+  text-decoration:none;
 
   
+`;
+
+
+
+export const SignInContainer = styled.div`
+display: flex;
+height: 100vh;
+`;
+
+export const ImageContainer = styled.div`
+flex: 1;
+`;
+
+export const StyledImage = styled.img`
+width: 100%;
+height: 100%;
+object-fit: cover;
+`;
+
+export const LoginFormContainer = styled.div`
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px;
 `;

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { StudentSignInContainer, Title, Logo, FormContainer, Topic, SubmitButton, Regs } from '../Styles/StudentSignInStyles';
+import {SignInContainer,ImageContainer ,StyledImage,LoginFormContainer, StudentSignInContainer, Title, Logo, FormContainer, Topic, SubmitButton, Regs } from '../Styles/StudentSignInStyles';
 import LoginImage from '../Assets/Login-rm.png';
 import { useNavigate } from 'react-router-dom';
 import { Alert } from '@mui/material';
 import ErrorIcon from '@mui/icons-material/Error';
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice.js';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import '../CSS/Login.css';
 import { InputField } from '../Styles/StudentSignInStyles.js';
 
@@ -52,7 +52,7 @@ const Studentsignin = () => {
   };
 
   // Styled components
-  const SignInContainer = styled.div`
+ /* const SignInContainer = styled.div`
     display: flex;
     height: 100vh;
   `;
@@ -74,7 +74,7 @@ const Studentsignin = () => {
     justify-content: center;
     align-items: center;
     padding: 20px;
-  `;
+  `;*/
 
   return (
     <div className="sign-body">
@@ -86,14 +86,14 @@ const Studentsignin = () => {
           <Title>DEIE UGP Management System</Title>
           <FormContainer>
             <Topic>Login as Student</Topic>
-            <InputField
+            <input className='userN'
               type='text'
               placeholder='Username'
               id='username'
               onChange={handleChange}
               required
             />
-            <InputField
+            <input className='passW'
               type='password'
               placeholder='Password'
               id='password'

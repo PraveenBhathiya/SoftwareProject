@@ -28,7 +28,7 @@
 
 .profile-container{
     display: flex;
-    justify-content: flex-end;
+    
     margin-top: 50px;
     margin-left: 1030px;
 }
@@ -42,7 +42,7 @@
 .Notification-container{
     display: flex;
     margin-top: -60px;
-    margin-left: 950px;
+    margin-left: 1030px;
 }
 
 .Notification{

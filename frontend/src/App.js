@@ -36,8 +36,12 @@ import E19_uploads from './Pages/Teacher/E19_uploads.jsx';
 
 import Student_View_marks from './Pages/Student/View_marks.jsx';
 import Admin_Marks from './Pages/Admin/Marks.jsx';
+import ManageUserbyAdding from './Pages/Admin/ManageUserbyAdding.jsx';
 
 import Student_Uploads from './Pages/Student/Uploads.jsx';
+
+
+
 
 
 
@@ -71,7 +75,7 @@ function App() {
           <Route exact path='/teacher/dashboard' element={< TeacherDashBoard />} /> 
           <Route exact path='/admin/dashboard' element={< AdminDashBoard />} /> 
 
-          <Route exact path='/admin/manage-user' element={< ManageUser />} /> 
+          <Route exact path='/admin/manage-user' element={< ManageUserbyAdding />} /> 
 
 
           <Route exact path='/teacher/sidebar/marks' element={< TeacherMarks />} />

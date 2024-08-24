@@ -1,7 +1,9 @@
  .sign-body{
-    background: #602cdd;  
-    background: -webkit-linear-gradient(to right, #602cdd, #562dce, #7960c7); 
-    background: linear-gradient(to right, #602cdd, #562dce, #7960c7);
+  background: #b3e5fc;
+background: -webkit-linear-gradient(to right, #b3e5fc, #81d4fa, #4fc3f7);
+background: linear-gradient(to right, #b3e5fc, #81d4fa, #4fc3f7);
+
+  
     width: 100vw;
     height: 100vh;
     margin-top: -40px;
@@ -58,4 +60,30 @@
       color: #fff; /* Placeholder text color */
  }
 
+  }
+
+  .userN{
+    width: 90%;
+    padding: 10px;
+    gap:50px;
+    margin-bottom:2px;
+    margin-top:50px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
+  }
+
+  .passW{
+    width: 90%;
+    padding: 10px;
+    gap:50px;
+    margin-bottom:2px;
+    margin-top:50px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
   }

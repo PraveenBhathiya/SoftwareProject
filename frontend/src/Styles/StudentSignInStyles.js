@@ -37,7 +37,7 @@ export const FormContainer = styled.form`
   max-width: 500px; 
   height: 500px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #1952fc;
   border-radius: 8px;
   
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -76,7 +76,7 @@ export const SubmitButton = styled(Link)`
   margin-top: 80px;
   border: none;
   border-radius: 18px;
-  background-color:orange;
+  background-color:#0764f0;
   color: white;
   font-weight:600;
   font-size: 18px;
@@ -86,7 +86,7 @@ export const SubmitButton = styled(Link)`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #6294df;
+    background-color: #08affc;
   }
   
   @media screen and (max-width: 768px) {
@@ -101,4 +101,29 @@ export const Regs = styled(Link)`
   text-decoration:none;
 
   
+`;
+
+
+export const SignInContainer = styled.div`
+display: flex;
+height: 100vh;
+`;
+
+export const ImageContainer = styled.div`
+flex: 1;
+`;
+
+export const StyledImage = styled.img`
+width: 100%;
+height: 100%;
+object-fit: cover;
+`;
+
+export const LoginFormContainer = styled.div`
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px;
 `;

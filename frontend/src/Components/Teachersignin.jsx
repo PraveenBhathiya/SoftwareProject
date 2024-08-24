@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { TeacherSignInContainer, Title, Logo, FormContainer, Topic, InputField, SubmitButton, Regs } from '../Styles/TeacherSignInStyles';
+import { SignInContainer,ImageContainer,StyledImage,LoginFormContainer, Title, Logo, FormContainer, Topic, InputField, SubmitButton, Regs } from '../Styles/TeacherSignInStyles';
 import ruh1 from '../../src/Assets/Ruhunalogo.png';
 import { useNavigate } from 'react-router-dom';
 import { Alert } from '@mui/material';
 import ErrorIcon from '@mui/icons-material/Error';
+import '../CSS/Login.css';
+import LoginImage from '../Assets/Login-rm.png';
 
 const Teachersignin = () => {
 
@@ -57,51 +59,46 @@ const Teachersignin = () => {
   };
   return (
 
-    <TeacherSignInContainer>
-      <Title>DEIE UGP Management System</Title> <br />
-      <Logo src={ruh1} alt="Logo" />
-      <FormContainer>
-        <Topic>Login as Teacher</Topic>
-        <InputField
-          type='text'
-          placeholder='Username'
-          id="username"
-          onChange={handleChange}
-          required
-        />
-
-        <InputField
-          type='password'
-          placeholder='Password'
-          id='password'
-          onChange={handleChange}
-          required
-        />
-
-        <SubmitButton
-          type='button'
-          onClick={handleSubmit}
-          disabled={loading}
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-        >
-          {
-            loading ? (
-              <>
-                <span className="p1-3">Loading...</span>
-              </>
-            ) : ("Login")
-          }
-        </SubmitButton>
-        <Regs to="/teacher/teacher-register" type='button'  >Register</Regs>
-      </FormContainer>
-      
-      {errorMessage && (
-        <Alert sx={{ mt: 5 }} severity="error" icon={<ErrorIcon />}>
-          {errorMessage}
-        </Alert>
-      )}
-
-    </TeacherSignInContainer>
+    <div className="sign-body">
+      <SignInContainer>
+        <ImageContainer>
+          <StyledImage src={LoginImage} alt="Sign In" />
+        </ImageContainer>
+        <LoginFormContainer>
+          <Title>DEIE UGP Management System</Title>
+          <FormContainer>
+            <Topic>Login as Teacher</Topic>
+            <input className='userN'
+              type='text'
+              placeholder='Username'
+              id='username'
+              onChange={handleChange}
+              required
+            />
+            <input className='passW'
+              type='password'
+              placeholder='Password'
+              id='password'
+              onChange={handleChange}
+              required
+            />
+            <SubmitButton
+              type='button'
+              onClick={handleSubmit}
+              disabled={loading}
+            >
+              {loading ? "Loading..." : "Login"}
+            </SubmitButton>
+            <Regs to="/student/student-register" type='button'>Register</Regs>
+          </FormContainer>
+          {errorMessage && (
+            <Alert sx={{ mt: 5 }} severity="error" icon={<ErrorIcon />}>
+              {errorMessage}
+            </Alert>
+          )}
+        </LoginFormContainer>
+      </SignInContainer>
+    </div>
   )
 }
 
