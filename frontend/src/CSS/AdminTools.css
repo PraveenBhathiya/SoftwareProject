@@ -13,41 +13,74 @@
     
   }
 
-  .ManageUserbyAddingContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .main1{
-   
-    margin-left: 250px;
+  .ManageUserbyAddingContainer {
+    display: flex;
   }
   
-  .topic1{
+  .main1 {
+    margin-left: 250px; /* Adjust based on your sidebar width */
+    padding: 20px;
+    width: 800px;
+  }
+  
+  .topic1 {
     font-size: 28px;
     font-weight: bold;
+    margin-bottom: 20px;
     color: #2648c3;
-    margin-top: 35px;
-    margin-left: -100px;
-    margin-bottom: 80px;
+  }
+  
+  .inputForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 500px;
+    margin-left: 120px;
+    margin-top: 60px;
+  }
+  
+  .inputForm input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #DBE6FE;
+  }
+  
+  .inputForm button {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: #2563EB;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 395px;
+    width: 110px;
+    height: 30px;
+  }
+  
+  .inputForm button:hover {
+    background-color: #054b77;
+  }
+  
+  .successMessage {
+    color: blue;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
   }
 
-  input[type="text"] {
-    display: flex;
-    flex-direction: row;
-    width: 100px;
-    height: 40px;
-    padding: 10px 12px;
-    margin: 8px 0;
-    
-    border-radius: 30px;
-    font-size: 14px;
-    color: #000000;
-    background-color: #DBE6FE;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-sizing: border-box;
-  }
+
+
+  
   
   
   
@@ -193,3 +226,123 @@
   p {
     margin: 0.5em 0;
   }
+
+  .searchSection{
+    margin-top: 30px;
+    margin-left: 700px;
+  }
+  
+
+
+
+  .searchSection {
+    margin-top: -20px;
+    margin-left: 250px; /* Align with the sidebar */
+    padding: 20px;
+    width: 800px; /* Same width as .main1 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between elements */
+  }
+  
+  .searchSection h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2648c3;
+    margin-bottom: 20px;
+    margin-left: -10px;
+  }
+  
+  .searchSection input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #DBE6FE;
+    width: 500px;
+    margin-left: 100px;
+  }
+  
+  .searchButton {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: #2563EB;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 110px;
+    height: 30px;
+    margin-left: 500px;
+    margin-top: -10px;
+  }
+  
+  .searchButton:hover {
+    background-color: #054b77;
+  }
+  
+  .searchedUserInfo {
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 500px;
+  }
+  
+  .searchedUserInfo .userDetail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .searchedUserInfo .label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .searchedUserInfo .value {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #DBE6FE;
+    width: 300px;
+  }
+  
+  .updateButton, .deleteButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 120px;
+    height: 30px;
+  }
+  
+  .updateButton {
+    background-color: #2563EB;
+    margin-left: 395px;
+  }
+  
+  .updateButton:hover {
+    background-color: #054b77;
+  }
+  
+  .deleteButton {
+    background-color: #dc3545;
+    margin-left: 395px;
+  }
+  
+  .deleteButton:hover {
+    background-color: #c82333;
+  }
+  
