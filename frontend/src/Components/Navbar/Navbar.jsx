@@ -7,7 +7,7 @@ const Navbar1 = () => {
   const navigate = useNavigate();
 
   const handleLoginClick = () =>{
-         navigate('/choose-user');
+         navigate('/signin');
   };
   const handleGuestClick = () =>{
    navigate('/guest-user');

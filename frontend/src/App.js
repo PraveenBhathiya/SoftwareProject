@@ -10,6 +10,7 @@ import AdminDashBoard from './Pages/Admin/Dashboard.jsx';
 
 import GuestUser from './Pages/GuestPage.jsx';
 import ChooseUser from './Components/ChooseUser.jsx';
+import SignIn from './Components/Signin.jsx';
 import Adminsignin from './Components/Adminsignin.jsx';
 import Studentsignin from './Components/Studentsignin.jsx';
 import Teachersignin from './Components/Teachersignin.jsx';
@@ -57,7 +58,7 @@ function App() {
          
           <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/choose-user' element={<ChooseUser/>} />
+          <Route path='/signin' element={<SignIn/>} />
           <Route path='/guest-user' element={<GuestUser/>} />
 
           <Route path='/about-us' element={<Aboutus/>} />
