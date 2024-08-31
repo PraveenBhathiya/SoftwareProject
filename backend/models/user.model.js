@@ -20,6 +20,7 @@ const studentSchema = new mongoose.Schema(
         },
         batch:{
             type: String,
+            ref: 'Batch',
             required: true,
         },
         password: {
