@@ -124,9 +124,9 @@ const Teacher_View_e22_marks = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ marks }),
+        body: JSON.stringify({ marks }), // Ensure `marks` is defined and structured correctly
       });
-
+  
       if (response.ok) {
         console.log('Marks saved successfully');
         setMarks(marks.map(mark => ({
@@ -144,7 +144,7 @@ const Teacher_View_e22_marks = () => {
       setError('Error saving marks. Please try again later.');
     }
   };
-
+  
   return (
     <div className='marks'>
       <TeacherSidebar />
@@ -178,7 +178,7 @@ const Teacher_View_e22_marks = () => {
             <button className="view2">View Marks</button>
           </div>
           <div className="upmarks">
-            <button className="up" onClick={handleSubmit}>Upload Marks</button>
+            <button className="up" >Upload Marks</button>
             <button className="up1" onClick={handleSubmit}>Upload Marks</button>
           </div>
         </div>

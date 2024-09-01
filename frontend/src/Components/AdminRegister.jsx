@@ -46,7 +46,7 @@ const AdminRegister = () => {
       setLoading(false);
 
       if (res.ok) {
-        navigate('/admin-signIn');
+        navigate('/signin');
       }
 
     } catch (error) {
