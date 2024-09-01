@@ -44,8 +44,9 @@
   background: #b9d8f1;
   border-radius: 12px;
   width: 80px;
-  height: 30px;
+  height: 50px;
   text-align: center;
+  cursor: auto;
 }
 
 .marks1 .view1, .marks2 .view2, .upmarks .up1 {
@@ -55,6 +56,98 @@
   color: #fff;
   border-radius: 12px;
   width: 100px;
-  height: 30px;
+  height: 50px;
   text-align: center; 
 }
+
+
+
+.table-container {
+  padding: 20px;
+  background-color: #EFF4FF; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff; 
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+thead th {
+  background-color: #3366CC; 
+  color: #FFFFFF;
+  text-align: left;
+  padding: 12px 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+
+tbody tr:nth-child(even) {
+  background-color: #F7FAFF; 
+}
+
+tbody tr:hover {
+  background-color: #E0E8FF; 
+}
+
+
+tbody td {
+  padding: 12px 15px;
+  color: #333333;
+  border-bottom: 1px solid #dddddd;
+}
+
+
+@media (max-width: 768px) {
+  table {
+      font-size: 14px;
+  }
+
+  thead {
+      display: none; 
+  }
+
+  tbody td {
+      display: block;
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+  }
+
+  tbody td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #555555;
+  }
+
+  tbody tr {
+      border-bottom: 1px solid #dddddd;
+      margin-bottom: 10px;
+  }
+}
+
+.upload-button {
+  background-color: #2648c3;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-button:hover {
+  background-color: #3366CC;
+}
+

@@ -1,51 +1,3 @@
-// import { Link } from 'react-router-dom';
-// import React, { useState } from 'react';
-// import TeacherSidebar from './Sidebar';
-// import '../../CSS/ViewMarks.css';
-// import '../../CSS/Marks.css';
-// import prof from '../../Assets/profile.png';
-
-// const Teacher_View_e22_marks = () => {
-
-//   const [menu, setMenu] = useState("Dashboard");
-
-//   return (
-//     <div className='marks'>
-//       <TeacherSidebar/>
- 
-//          <div className="viewmarks">
-         
-//           <h1>e22-Marks</h1>
-//           <div className="profile-container">
-//                     <div className='profile' onClick={() => { setMenu("Dashboard") }}>
-//                         <img src={prof} alt="" />
-//                         <Link to='/profile' style={{ textDecoration: 'none' }}>Profile</Link>
-//                         {menu === "Profile" ? <hr /> : null}
-//                     </div>
-//           </div>
-//           <div className="view-mark-container">
-//             <div className="marks1">
-//               <div className="mark1">1st Marks</div>
-//               <div className="view1">View Marks</div>
-//             </div>
-//             <div className="marks2">
-//               <div className="mark2">2nd Marks</div>
-//               <div className="view2">View Marks</div>
-//             </div>
-//             <div className="upmarks">
-//               <div className="up">Upload Marks</div>
-//               <div className="up1">Upload Marks</div>
-//             </div>
-//           </div>
-//          </div>
-//     </div>
-//   )
-// }
-
-// export default Teacher_View_e22_marks;
-
-
-
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import TeacherSidebar from './Sidebar';
@@ -105,30 +57,41 @@ const Teacher_View_e22_marks = () => {
     setMarks(newMarks);
   };
 
-  const renderTableRows = () => {
-    return marks.map((mark, index) => (
-      <tr key={index}>
-        <td>{mark.regNo}</td>
-        <td>{mark.username}</td>
-        <td><input type="number" value={mark.presentationMark} onChange={(e) => handleMarkChange(index, 'presentationMark', e.target.value)} /></td>
-        <td><input type="number" value={mark.vivaMark} onChange={(e) => handleMarkChange(index, 'vivaMark', e.target.value)} /></td>
-        <td><input type="number" value={mark.contributionMark} onChange={(e) => handleMarkChange(index, 'contributionMark', e.target.value)} /></td>
-      </tr>
-    ));
-  };
-
-  const handleSubmit = async () => {
+  const handleUpload = async (index) => {
     try {
       const response = await fetch('http://localhost:4000/api/marks/saveMarks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ marks }), // Ensure `marks` is defined and structured correctly
+        body: JSON.stringify({ mark: marks[index] }), // Send only the specific mark object
       });
   
       if (response.ok) {
         console.log('Marks saved successfully');
+      } else {
+        console.error('Error saving marks');
+        setError('Error saving marks. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error saving marks:', error);
+      setError('Error saving marks. Please try again later.');
+    }
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/api/marks/saveAllMarks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ marks }), // Send the entire marks array
+      });
+  
+      if (response.ok) {
+        console.log('All marks saved successfully');
+        // Reset marks after successful submission
         setMarks(marks.map(mark => ({
           ...mark,
           presentationMark: '',
@@ -144,7 +107,20 @@ const Teacher_View_e22_marks = () => {
       setError('Error saving marks. Please try again later.');
     }
   };
-  
+
+  const renderTableRows = () => {
+    return marks.map((mark, index) => (
+      <tr key={index}>
+        <td>{mark.regNo}</td>
+        <td>{mark.username}</td>
+        <td><input type="number" value={mark.presentationMark} onChange={(e) => handleMarkChange(index, 'presentationMark', e.target.value)} /></td>
+        <td><input type="number" value={mark.vivaMark} onChange={(e) => handleMarkChange(index, 'vivaMark', e.target.value)} /></td>
+        <td><input type="number" value={mark.contributionMark} onChange={(e) => handleMarkChange(index, 'contributionMark', e.target.value)} /></td>
+        <td><button className="upload-button" onClick={() => handleUpload(index)}>Upload</button></td>
+      </tr>
+    ));
+  };
+
   return (
     <div className='marks'>
       <TeacherSidebar />
@@ -177,10 +153,7 @@ const Teacher_View_e22_marks = () => {
             <button className="mark2">2nd Marks</button>
             <button className="view2">View Marks</button>
           </div>
-          <div className="upmarks">
-            <button className="up" >Upload Marks</button>
-            <button className="up1" onClick={handleSubmit}>Upload Marks</button>
-          </div>
+          
         </div>
 
         <div className="table-container">
@@ -192,6 +165,7 @@ const Teacher_View_e22_marks = () => {
                 <th>Presentation Mark</th>
                 <th>Viva Mark</th>
                 <th>Contribution Mark</th>
+                <th>Upload</th> {/* New column for the Upload button */}
               </tr>
             </thead>
             <tbody>
