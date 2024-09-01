@@ -1,0 +1,60 @@
+.marks {
+  display: flex;
+  height: 100vh; 
+}
+
+.viewmarks {
+  flex-grow: 1; 
+  padding: 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.viewmarks h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #2648c3;
+  margin-top: 20px;
+}
+
+.view-mark-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.marks1, .marks2, .upmarks {
+  border: 0px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+  width: 600px;
+  height: 50px;
+  background:#dfecf7;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  gap: 10px;
+}
+
+.marks1 .mark1, .marks2 .mark2, .upmarks .up {
+  font-size: 16px;
+  border: 0px solid #000;
+  background: #b9d8f1;
+  border-radius: 12px;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+}
+
+.marks1 .view1, .marks2 .view2, .upmarks .up1 {
+  font-size: 16px;
+  border: 0px solid #000;
+  background: #5eaff7;
+  color: #fff;
+  border-radius: 12px;
+  width: 100px;
+  height: 30px;
+  text-align: center; 
+}

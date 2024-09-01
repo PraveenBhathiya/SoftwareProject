@@ -1,0 +1,121 @@
+.upload-home{
+    display: flex;
+    height: 100vh; 
+}
+
+h1{
+    display: flex;
+    font-size: 28px;
+    font-weight: 800;
+    color: #2648c3;
+    margin-left: 250px;
+}
+
+.upload-content{
+    flex-grow: 1; 
+    padding: 20px; 
+    margin-left: -750px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.upl{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 0px solid #000;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    width: 600px;
+    height: 70px;
+    align-items: center;
+    background:#dfecf7;
+}
+
+.plus{
+    border: 0px solid #000;
+    border-radius: 15px;
+    padding: 4px 5px 4px 5px;
+    margin: 10px;
+    width: 100px;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#b3e7f4;
+}
+
+.up-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    border: 0px solid #000;
+    background: #360ae5;
+    color: #fff;
+    border-radius: 12px;
+    width: 100px;
+    height: 30px;
+    padding: 1px 2px;
+    text-align: center;
+}
+
+.up3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 0px solid #000;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    width: 600px;
+    height: 70px;
+    align-items: center;
+    background:#dfecf7;
+    margin: 20px;
+}
+
+.upload-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 16px;
+    font-weight: 500;
+    border: 0px solid #000;
+    background:#b3e7f4;
+    color: black;
+    border-radius: 12px;
+    width: 75px;
+    height: 30px;
+    margin: 1px 1px;
+    padding: 1px 1px;
+    text-align: center;
+}
+
+.upl3 p{
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    margin: 5px ;
+}
+
+.viup3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    border: 0px solid #000;
+    background: #360ae5;
+    color: #fff;
+    border-radius: 12px;
+    width: 120px;
+    height: 30px;
+    padding: 1px 2px;
+    text-align: center;
+}
