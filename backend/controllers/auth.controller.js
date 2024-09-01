@@ -3,76 +3,121 @@ import bcryptjs from 'bcryptjs';
 import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
 
-export const signupStudent = async (req, res, next) => {
-    const { username, regNo, email, batch, password } = req.body;
+// export const signupStudent = async (req, res, next) => {
+//     const { username, regNo, email, batch, password } = req.body;
 
-    if (!username || !regNo || !email || !password || !batch || username === "" || regNo === "" || email === "" || password === "" || batch === "") {
-        return next(errorHandler(400, "All fileds are required"));
+//     if (!username || !regNo || !email || !password || !batch || username === "" || regNo === "" || email === "" || password === "" || batch === "") {
+//         return next(errorHandler(400, "All fileds are required"));
+//     }
+
+//     const hashPassword = bcryptjs.hashSync(password, 10);
+
+//     const newStudent = new Student({
+//         username,
+//         regNo,
+//         email,
+//         batch,
+//         password: hashPassword,
+//     });
+
+//     try {
+//         await newStudent.save();
+//         res.json("SignupStudent successfull!");
+//     } catch (error) {
+//         next(error);
+//     }
+// };
+
+// export const signupTeacher = async (req, res, next) => {
+//     const { username, email, password } = req.body;
+
+//     if (!username || !email || !password || username === "" || email === "" || password === "") {
+//         return next(errorHandler(400, "All fileds are required"));
+//     }
+
+//     const hashPassword = bcryptjs.hashSync(password, 10);
+
+//     const newTeacher = new Teacher({
+//         username,
+//         email,
+//         password: hashPassword,
+//     });
+
+//     try {
+//         await newTeacher.save();
+//         res.json("SignupTeacher successfull!");
+//     } catch (error) {
+//         next(error);
+//     }
+// };
+
+// export const signupAdmin = async (req, res, next) => {
+//     const { username, email, password } = req.body;
+
+//     if (!username || !email || !password || username === "" || email === "" || password === "") {
+//         return next(errorHandler(400, "All fileds are required"));
+//     }
+
+//     const hashPassword = bcryptjs.hashSync(password, 10);
+
+//     const newAdmin = new Admin({
+//         username,
+//         email,
+//         password: hashPassword,
+//     });
+
+//     try {
+//         await newAdmin.save();
+//         res.json("SignupAdmin successfull!");
+//     } catch (error) {
+//         next(error);
+//     }
+// };
+
+
+export const signup = async (req, res, next) => {
+    const { role, username, email, password, regNo, batch } = req.body;
+
+    if (!role || !username || !email || !password || username === "" || email === "" || password === "") {
+        return next(errorHandler(400, "All required fields must be filled!"));
     }
 
-    const hashPassword = bcryptjs.hashSync(password, 10);
-
-    const newStudent = new Student({
+    let user;
+    let userData = {
         username,
-        regNo,
         email,
-        batch,
-        password: hashPassword,
-    });
+        password: bcryptjs.hashSync(password, 10),
+    };
+
+    switch (role) {
+        case 'student':
+            if (!regNo || !batch || regNo === "" || batch === "") {
+                return next(errorHandler(400, "Registration number and batch are required for students!"));
+            }
+            userData = { ...userData, regNo, batch };
+            user = new Student(userData);
+            break;
+
+        case 'teacher':
+            user = new Teacher(userData);
+            break;
+
+        case 'admin':
+            user = new Admin(userData);
+            break;
+
+        default:
+            return next(errorHandler(400, "Invalid role specified!"));
+    }
 
     try {
-        await newStudent.save();
-        res.json("SignupStudent successfull!");
+        await user.save();
+        res.json(`Signup ${role} successful!`);
     } catch (error) {
         next(error);
     }
 };
 
-export const signupTeacher = async (req, res, next) => {
-    const { username, email, password } = req.body;
-
-    if (!username || !email || !password || username === "" || email === "" || password === "") {
-        return next(errorHandler(400, "All fileds are required"));
-    }
-
-    const hashPassword = bcryptjs.hashSync(password, 10);
-
-    const newTeacher = new Teacher({
-        username,
-        email,
-        password: hashPassword,
-    });
-
-    try {
-        await newTeacher.save();
-        res.json("SignupTeacher successfull!");
-    } catch (error) {
-        next(error);
-    }
-};
-
-export const signupAdmin = async (req, res, next) => {
-    const { username, email, password } = req.body;
-
-    if (!username || !email || !password || username === "" || email === "" || password === "") {
-        return next(errorHandler(400, "All fileds are required"));
-    }
-
-    const hashPassword = bcryptjs.hashSync(password, 10);
-
-    const newAdmin = new Admin({
-        username,
-        email,
-        password: hashPassword,
-    });
-
-    try {
-        await newAdmin.save();
-        res.json("SignupAdmin successfull!");
-    } catch (error) {
-        next(error);
-    }
-};
 
 // export const signinStudent = async (req, res, next) => {
 //     const { username, password } = req.body;

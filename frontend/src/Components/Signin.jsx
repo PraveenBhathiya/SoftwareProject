@@ -222,7 +222,7 @@ const UnifiedSignIn = () => {
                         >
                             {loading ? "Loading..." : "Login"}
                         </SubmitButton>
-                        <Regs to="/student/student-register" type='button'>Register</Regs>
+                        <Regs to="/Register" type='button'>Register</Regs>
                     </FormContainer>
                     {errorMessage && (
                         <Alert sx={{ mt: 5 }} severity="error" icon={<ErrorIcon />}>
