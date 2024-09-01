@@ -1,11 +1,12 @@
 //marks.routes.js
 
 import express from 'express';
-import {saveMarks} from '../controllers/marks.controller.js';
+import {saveMarks, getStudentData} from '../controllers/marks.controller.js';
 
 const router = express.Router();
 
-router.post('/saveMarks', saveMarks);
+router.put('/saveMarks', saveMarks);
+router.get('/getStudentData', getStudentData);
 
 
 export default router;

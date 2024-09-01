@@ -30,6 +30,7 @@ const marksSchema = new mongoose.Schema(
   }
 );
 
-const Marks = mongoose.model('Marks', marksSchema);
+const Marks = mongoose.model("Marks", marksSchema);
+//const Student = mongoose.model("Student", studentSchema);
 
-module.exports = Marks;
+export{Marks};

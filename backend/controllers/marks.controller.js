@@ -1,4 +1,4 @@
-import {Marks} from '../models/marks_model.js';
+import {Marks} from '../models/marks.model.js';
 import {Student} from '../models/user.model.js'
 
 // Controller to fetch student information (registration numbers and names)
@@ -40,7 +40,4 @@ const saveMarks = async (req, res) => {
   }
 };
 
-module.exports = {
-  getStudentData,
-  saveMarks,
-};
+export{ getStudentData, saveMarks};

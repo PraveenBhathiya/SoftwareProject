@@ -64,7 +64,7 @@ const Teacher_View_e22_marks = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/admin/getAllStudents');
+        const response = await fetch('http://localhost:4000/api/marks/getStudentData');
 
         // Check if the response is JSON
         const contentType = response.headers.get('Content-Type');
@@ -120,7 +120,7 @@ const Teacher_View_e22_marks = () => {
   const handleSubmit = async () => {
     try {
       const response = await fetch('http://localhost:4000/api/marks/saveMarks', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
