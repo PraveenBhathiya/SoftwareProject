@@ -16,7 +16,7 @@ import Studentsignin from './Components/Studentsignin.jsx';
 import Teachersignin from './Components/Teachersignin.jsx';
 import StudentRegister from './Pages/Student/StudentRegister.jsx';
 import TeacherRegister from './Pages/Teacher/TeacherRegister.jsx';
-import AdminRegister from './Components/AdminRegister.jsx';
+import Register from './Components/Register.jsx';
 import Aboutus from './Components/Aboutus.jsx';
 import Contactus from './Components/Contactus.jsx';
 
@@ -70,7 +70,7 @@ function App() {
 
           <Route exact path='/student/student-register' element={< StudentRegister/>} />
           <Route exact path='/teacher/teacher-register' element={< TeacherRegister/>} />
-          <Route exact path='/components/admin-register' element={< AdminRegister/>} />
+          <Route exact path='/Register' element={< Register/>} />
 
           <Route exact path='/student/dashboard' element={< StudentDashboard />} />
           <Route exact path='/teacher/dashboard' element={< TeacherDashBoard />} /> 
