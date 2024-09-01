@@ -1,5 +1,5 @@
-const Marks = require('./marks_model');
-const Student = require('./student_model'); // Import the Student model
+import {Marks} from '../models/marks_model.js';
+import {Student} from '../models/user.model.js'
 
 // Controller to fetch student information (registration numbers and names)
 const getStudentData = async (req, res) => {
@@ -16,7 +16,7 @@ const saveMarks = async (req, res) => {
   try {
     const { marks } = req.body; // Expecting an array of marks data
 
-    const savedMarks = [];
+    const savedMarks = [];  //array?
 
     for (const markData of marks) {
       const { regNo, username, presentationMark, vivaMark, contributionMark } = markData;
@@ -30,6 +30,7 @@ const saveMarks = async (req, res) => {
       });
 
       const savedMark = await newMark.save();
+      console.log(savedMarks);
       savedMarks.push(savedMark);
     }
 

@@ -1,7 +1,7 @@
 //marks_model.js
 
-const mongoose = require('mongoose');
 
+import mongoose from 'mongoose';
 const marksSchema = new mongoose.Schema(
   {
     regNo: {
