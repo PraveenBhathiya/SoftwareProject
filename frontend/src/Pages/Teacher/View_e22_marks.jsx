@@ -45,7 +45,6 @@
 // export default Teacher_View_e22_marks;
 
 
-
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import TeacherSidebar from './Sidebar';
@@ -64,11 +63,9 @@ const Teacher_View_e22_marks = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/marks/getStudentData');
+        const response = await fetch('http://localhost:4000/api/marks/getAllStudents');
 
-        // Check if the response is JSON
-        const contentType = response.headers.get('Content-Type');
-        if (contentType && contentType.includes('application/json')) {
+        if (response.ok) {
           const data = await response.json();
           setStudents(data);
 
