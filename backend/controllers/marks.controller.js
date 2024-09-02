@@ -2,16 +2,13 @@ import {Marks} from '../models/marks.model.js';
 import {Student} from '../models/user.model.js'
 
 // Controller to fetch student information (registration numbers and names)
-const getStudentData = async (req, res) => {
-  // try {
-  //   const students = await Student.find({}, 'regNo username'); // Fetch only regNo and username
-  //   res.json(students); // Send the data to the frontend
-  // } catch (error) {
-  //   res.status(500).json({ message: 'Error fetching student data', error });
-  // }
-  const students = await Student.find({}).sort({createdAt: -1})
-
-    res.status(200).json(students)
+export const getStudentData = async (req, res) => {
+  try {
+    const students = await Student.find({}, 'regNo username'); // Fetch only regNo and username
+    res.json(students); // Send the data to the frontend
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching student data', error });
+  }
 };
 
 // Controller to save marks entered by the teacher
@@ -33,4 +30,4 @@ const saveMarks = async (req, res) => {
     res.status(500).json({ message: 'Error saving marks', error });
   }
 };
-export{ getStudentData, saveMarks};
+export{saveMarks};
