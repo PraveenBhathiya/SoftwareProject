@@ -172,26 +172,74 @@ export const getStudent = async (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-  // Fetch student data along with their marks for a specific evaluation type
-export const getStudentData = async (req, res) => {
-  const { evaluationType } = req.query; // Proposal, Progress, or Final
+// // Fetch student data along with their marks for a specific evaluation type
+// export const getStudentData = async (req, res) => {
+//   const { evaluationType } = req.query; // Proposal, Progress, or Final
 
+//   // Select the fields we want to return based on the evaluationType
+//   let fieldsToSelect = 'regNo  username'; // Always include regNo and username
+//   if (evaluationType === 'proposal') {
+//     fieldsToSelect += ' proposal_presentationMark  proposal_vivaMark  proposal_contributionMark';
+//   } else if (evaluationType === 'progress') {
+//     fieldsToSelect += ' progress_presentationMark  progress_vivaMark  progress_contributionMark';
+//   } else if (evaluationType === 'final') {
+//     fieldsToSelect += ' final_presentationMark  final_vivaMark  final_contributionMark';
+//   }
+
+//   try {
+//     // Fetch students with the selected fields
+//     const students = await Marks.find({}, fieldsToSelect);
+        
+//     if (!students || students.length === 0) {
+//       return res.status(404).json({ message: 'No student data found.' });
+//     }
+
+//     res.json(students);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Error fetching student data through getStudentData', error });
+//   }
+// };
+
+
+
+export const getStudentData = async (req, res) => {
+  const { evaluationType } = req.query;
+
+  // Define fields to select based on evaluationType
   let fieldsToSelect = 'regNo username'; // Always include regNo and username
-  if (evaluationType === 'proposal') {
-    fieldsToSelect += ' proposal_presentationMark proposal_vivaMark proposal_contributionMark';
-  } else if (evaluationType === 'progress') {
-    fieldsToSelect += ' progress_presentationMark progress_vivaMark progress_contributionMark';
-  } else if (evaluationType === 'final') {
-    fieldsToSelect += ' final_presentationMark final_vivaMark final_contributionMark';
+  let markFields = '';
+
+  switch (evaluationType) {
+    case 'proposal':
+      markFields = 'proposal_presentationMark proposal_vivaMark proposal_contributionMark';
+      break;
+    case 'progress':
+      markFields = 'progress_presentationMark progress_vivaMark progress_contributionMark';
+      break;
+    case 'final':
+      markFields = 'final_presentationMark final_vivaMark final_contributionMark';
+      break;
+    default:
+      return res.status(400).json({ message: 'Invalid evaluation type.' });
   }
+
+  fieldsToSelect += ' ' + markFields;
 
   try {
+    // Fetch students with the selected fields
     const students = await Marks.find({}, fieldsToSelect);
+    
+    if (!students || students.length === 0) {
+      return res.status(404).json({ message: 'No student data found.' });
+    }
+
     res.json(students);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching student data in getStudentData', error });
+    res.status(500).json({ message: 'Error fetching student data through getStudentData', error });
   }
 };
+
+
 
 // Save marks for a specific evaluation type
 export const saveMarks = async (req, res) => {
@@ -199,7 +247,7 @@ export const saveMarks = async (req, res) => {
 
   try {
     for (const markData of marks) {
-      const { regNo, presentationMark, vivaMark, contributionMark } = markData;
+      const { regNo, presentationMark, vivaMark, contributionMark } = markData;   //why no username?
 
       const updateData = {};
       if (evaluationType === 'proposal') {
@@ -224,6 +272,6 @@ export const saveMarks = async (req, res) => {
     }
     res.status(200).json({ message: 'Marks saved successfully' });
   } catch (error) {
-    res.status(500).json({ message: 'Error saving marks', error });
+    res.status(500).json({ message: 'Error saving marks through saveMarks', error });
   }
 };

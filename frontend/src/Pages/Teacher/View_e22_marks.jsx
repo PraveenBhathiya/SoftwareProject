@@ -286,22 +286,27 @@ const Teacher_View_e22_marks = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/admin/getStudentData?evaluationType=${selectedTable}`);
+        const response = await fetch(`http://localhost:4000/api/admin/getStudentData?evaluationType=${selectedTable}`);  //THIS DOESN'T FETCH USERNAMES
         console.log('Fetching data from:', `http://localhost:4000/api/admin/getStudentData?evaluationType=${selectedTable}`);
 
         if (response.ok) {
           const data = await response.json();
-          console.log('Fetched data:', data); // Debugging line
+          console.log('Fetched data:', data); // Debugging line    -------> --ERROR--- NO USERNAME HERE!
 
           // Check if the data has the expected structure
           if (Array.isArray(data) && data.length > 0) {
             // Initialize marks state with empty values for each student
             const initialMarks = data.map(student => ({
-              regNo: student.regNo || 'N/A',
-              username: student.username || 'N/A',
+              regNo: student.regNo ,                     
+
+              //////---ERROR---//////
+
+              
+              username: student.username  ,         
               presentationMark: student[`${selectedTable}_presentationMark`] || '',
               vivaMark: student[`${selectedTable}_vivaMark`] || '',
               contributionMark: student[`${selectedTable}_contributionMark`] || ''
+              
             }));
             setMarks(initialMarks);
           } else {
@@ -386,7 +391,7 @@ const Teacher_View_e22_marks = () => {
     return marks.map((mark, index) => (
       <tr key={index}>
         <td>{mark.regNo || 'N/A'}</td> {/* Display Registration No */}
-        <td>{mark.username || 'N/A'}</td> {/* Display Username */}
+        <td>{mark.username || 'N/A'}</td> {/* Display Username */}       
         <td>
           <input 
             type="number" 
