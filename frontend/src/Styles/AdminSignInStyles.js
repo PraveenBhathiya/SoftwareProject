@@ -17,7 +17,7 @@ export const AdminSignInContainer = styled.div`
 `;
 export const Title = styled.div`
   Font-size: 40px;
-  color: #000000;
+  color: #2648c3;
   margin-top: 50px;
   margin-bottom: 80px;
   font-weight: bold; 
@@ -48,7 +48,7 @@ export const FormContainer = styled.form`
 export const Topic = styled.div`
   Font-size: 30px;
   font-weight:800;
-  color: #000000;
+  color: #2648c3;
   margin-top: 50px;
   
 
