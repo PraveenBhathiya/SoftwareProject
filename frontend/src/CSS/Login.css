@@ -1,89 +1,64 @@
- .sign-body{
+.sign-body {
   background: #EFF4FF;
-/*background: -webkit-linear-gradient(to right, #b3e5fc, #81d4fa, #4fc3f7);
-background: linear-gradient(to right, #b3e5fc, #81d4fa, #4fc3f7);*/
-
-  
-    width: 100vw;
-    height: 100vh;
-    margin-top: -40px;
-    margin-left: -20px;
-    margin-bottom: 20px
-  }
-  
-  .image-container{
-    display: flex;
-    flex-direction: column;
-
-  }
-
-  .image-container img{
-    width: 600px;
-    height: 600px;
-  }
-
-  .login-form{
-    display: flex;
-    flex-direction: row;
-  }
-
-  .input1{
-  width: 90%;
-  padding: 10px;
-  gap:50px;
-  margin-bottom:2px;
-  margin-top:50px;
-  border: 1px solid #fff;
-  background-color: transparent;
-  border-radius: 20px;
-  color: #fff;
-  outline: none;
-  
-  &::placeholder {
-    color: #fff; /* Placeholder text color */
-  }
+  width: 100vw;
+  height: 100vh;
+  margin-top: -40px;
+  margin-left: -20px;
+  margin-bottom: 20px;
 }
 
- .input2{
-    width: 90%;
-    padding: 10px;
-    gap:50px;
-    margin-bottom:2px;
-    margin-top:50px;
-    border: 1px solid #fff;
-    background-color: transparent;
-    border-radius: 10px;
-    color: #fff;
-    outline: none;
-    
-    &::placeholder {
-      color: #fff; /* Placeholder text color */
- }
+.image-container {
+  display: flex;
+  flex-direction: column;
+}
 
-  }
+.image-container img {
+  width: 600px;
+  height: 600px;
+}
 
-  .userN{
-    width: 90%;
-    padding: 10px;
-    gap:50px;
-    margin-bottom:2px;
-    margin-top:50px;
-    border: 1px solid #fff;
-    background-color: transparent;
-    border-radius: 10px;
-    color: #fff;
-    outline: none;
-  }
+.login-form {
+  display: flex;
+  flex-direction: row;
+}
 
-  .passW{
-    width: 90%;
-    padding: 10px;
-    gap:50px;
-    margin-bottom:2px;
-    margin-top:50px;
-    border: 1px solid #fff;
-    background-color: transparent;
-    border-radius: 10px;
-    color: #fff;
-    outline: none;
-  }
+.input1, .input2 {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  border-radius: 10px;
+  color: #fff;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.userN, .passW {
+  width: 100%; /* Make both inputs full width */
+  max-width: 400px; /* Set a max-width to keep things consistent */
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #fff;
+  background-color: #EFF4FF;
+  border-radius: 10px; 
+  color: #000;
+  outline: none;
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.userN::placeholder, .passW::placeholder {
+  color: #464646;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
