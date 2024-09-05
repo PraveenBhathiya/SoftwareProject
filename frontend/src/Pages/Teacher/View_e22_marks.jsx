@@ -265,13 +265,12 @@
 
 // export default Teacher_View_e22_marks;
 
-
-
-
-
-import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import TeacherSidebar from './Sidebar';
+import { Alert } from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'; // Success icon
 import '../../CSS/ViewMarksTable.css'; // Updated CSS import
 import prof from '../../Assets/profile.png';
 
@@ -281,41 +280,35 @@ const Teacher_View_e22_marks = () => {
   const [students, setStudents] = useState([]);
   const [marks, setMarks] = useState([]);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');  // New state for success message
 
   // Fetch student data from the backend whenever the selectedTable changes
   useEffect(() => {
     const fetchStudents = async () => {
+      setError('');  // Clear error when making a new request
       try {
-        const response = await fetch(`http://localhost:4000/api/admin/getStudentData?evaluationType=${selectedTable}`);  //THIS DOESN'T FETCH USERNAMES
+        const response = await fetch(`http://localhost:4000/api/admin/getStudentData?evaluationType=${selectedTable}`);
         console.log('Fetching data from:', `http://localhost:4000/api/admin/getStudentData?evaluationType=${selectedTable}`);
 
         if (response.ok) {
           const data = await response.json();
-          console.log('Fetched data:', data); // Debugging line    -------> --ERROR--- NO USERNAME HERE!
+          console.log('Fetched data:', data);
 
-          // Check if the data has the expected structure
           if (Array.isArray(data) && data.length > 0) {
-            // Initialize marks state with empty values for each student
             const initialMarks = data.map(student => ({
-              regNo: student.regNo ,                     
-
-              //////---ERROR---//////
-
-              
-              username: student.username  ,         
+              regNo: student.regNo,
+              username: student.username,  // Fix this based on backend response
               presentationMark: student[`${selectedTable}_presentationMark`] || '',
               vivaMark: student[`${selectedTable}_vivaMark`] || '',
               contributionMark: student[`${selectedTable}_contributionMark`] || ''
-              
             }));
             setMarks(initialMarks);
           } else {
-            console.error('Data format is incorrect:', data);
             setError('No student data available or incorrect data format.');
           }
         } else {
-          console.error('Response error:', await response.text());
-          setError('Error fetching student data. Please try again later.');
+          const errorMessage = await response.text();
+          setError(errorMessage || 'Error fetching student data.');
         }
       } catch (error) {
         console.error('Error fetching student data:', error);
@@ -327,6 +320,7 @@ const Teacher_View_e22_marks = () => {
   }, [selectedTable]);
 
   const handleTableChange = (e) => {
+    setError('');  // Clear the error when table is changed
     setSelectedTable(e.target.value);
   };
 
@@ -337,20 +331,24 @@ const Teacher_View_e22_marks = () => {
   };
 
   const handleUpload = async (index) => {
+    setError('');  // Clear the error when attempting to upload
+    setSuccess(''); // Clear previous success messages
+
     try {
       const response = await fetch('http://localhost:4000/api/admin/saveMarks', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ marks: [marks[index]], evaluationType: selectedTable }), // Send only the specific mark object as an array
+        body: JSON.stringify({ marks: [marks[index]], evaluationType: selectedTable }),
       });
 
       if (response.ok) {
-        console.log('Marks saved successfully');
+        setSuccess('Marks saved successfully');
+        setTimeout(() => setSuccess(''), 3000); // Clear the success message after 3 seconds
       } else {
-        console.error('Upload response error:', await response.text());
-        setError('Error saving marks. Please try again later.');
+        const errorMessage = await response.text();
+        setError(errorMessage || 'Error saving marks.');
       }
     } catch (error) {
       console.error('Error uploading marks:', error);
@@ -358,40 +356,71 @@ const Teacher_View_e22_marks = () => {
     }
   };
 
+  // const handleSubmit = async () => {
+  //   setError('');  // Clear the error when submitting
+  //   setSuccess(''); // Clear previous success messages
+
+  //   try {
+  //     const response = await fetch('http://localhost:4000/api/admin/saveMarks', {
+  //       method: 'PUT',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ marks, evaluationType: selectedTable }),
+  //     });
+
+  //     if (response.ok) {
+  //       setSuccess('All marks saved successfully');
+  //       setTimeout(() => setSuccess(''), 3000); // Clear the success message after 3 seconds
+  //       setMarks(marks.map(mark => ({
+  //         ...mark,
+  //         presentationMark: '',
+  //         vivaMark: '',
+  //         contributionMark: ''
+  //       })));
+  //     } else {
+  //       const errorMessage = await response.text();
+  //       setError(errorMessage || 'Error saving marks.');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error submitting marks:', error);
+  //     setError('Error saving marks. Please try again later.');
+  //   }
+  // };
+
+
   const handleSubmit = async () => {
+    setError('');  // Clear the error when submitting
     try {
       const response = await fetch('http://localhost:4000/api/admin/saveMarks', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ marks, evaluationType: selectedTable }), // Send the entire marks array
+        body: JSON.stringify({ marks, evaluationType: selectedTable }),
       });
-
+  
       if (response.ok) {
         console.log('All marks saved successfully');
-        // Reset marks after successful submission
-        setMarks(marks.map(mark => ({
-          ...mark,
-          presentationMark: '',
-          vivaMark: '',
-          contributionMark: ''
-        })));
+        // Add a success message instead of resetting the marks
+        setSuccess('All marks saved successfully');  // Show success message in the error field or use a success state if needed
+        setTimeout(() => setSuccess(''), 3000);
       } else {
-        console.error('Submit response error:', await response.text());
-        setError('Error saving marks. Please try again later.');
+        const errorMessage = await response.text();
+        setError(errorMessage || 'Error saving marks.');
+        setTimeout(() => setError(''), 3000);
       }
     } catch (error) {
       console.error('Error submitting marks:', error);
       setError('Error saving marks. Please try again later.');
     }
   };
+  
 
   const renderTableRows = () => {
     return marks.map((mark, index) => (
       <tr key={index}>
-        <td>{mark.regNo || 'N/A'}</td> {/* Display Registration No */}
-        { /*<td>{mark.username || 'N/A'}</td>     */}   
+        <td>{mark.regNo || 'N/A'}</td>
         <td>
           <input 
             type="number" 
@@ -425,7 +454,6 @@ const Teacher_View_e22_marks = () => {
     ));
   };
 
-  // Determine the title based on the selected evaluation type
   const getTitle = () => {
     switch (selectedTable) {
       case 'proposal':
@@ -443,7 +471,16 @@ const Teacher_View_e22_marks = () => {
     <div className='marks'>
       <TeacherSidebar />
       <div className="viewmarks">
-        {error && <div className="error">{error}</div>}
+        {error && (
+          <Alert sx={{ mt: 5 }} severity="error" icon={<ErrorIcon />}>
+            {error}
+          </Alert>
+        )}
+        {success && (
+          <Alert sx={{ mt: 5 }} severity="success" icon={<CheckCircleIcon />}>
+            {success}
+          </Alert>
+        )}
         <div className="profile-container">
           <div className='profile' onClick={() => { setMenu("Dashboard") }}>
             <img src={prof} alt="Profile" />
@@ -461,13 +498,16 @@ const Teacher_View_e22_marks = () => {
           </select>
         </div>
 
-        <h1>{getTitle()}</h1>
+        
+        <div className="title-container">
+         
+          <h1>{getTitle()}</h1>
+        </div>
         <div className="table-container">
           <table className="marks-table">
             <thead>
               <tr>
                 <th>Reg No</th>
-                { /*<th>Username</th>*/ }
                 <th>Presentation Mark</th>
                 <th>Viva Mark</th>
                 <th>Contribution Mark</th>
