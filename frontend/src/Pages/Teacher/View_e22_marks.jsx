@@ -391,7 +391,7 @@ const Teacher_View_e22_marks = () => {
     return marks.map((mark, index) => (
       <tr key={index}>
         <td>{mark.regNo || 'N/A'}</td> {/* Display Registration No */}
-        <td>{mark.username || 'N/A'}</td> {/* Display Username */}       
+        { /*<td>{mark.username || 'N/A'}</td>     */}   
         <td>
           <input 
             type="number" 
@@ -467,7 +467,7 @@ const Teacher_View_e22_marks = () => {
             <thead>
               <tr>
                 <th>Reg No</th>
-                <th>Username</th>
+                { /*<th>Username</th>*/ }
                 <th>Presentation Mark</th>
                 <th>Viva Mark</th>
                 <th>Contribution Mark</th>
