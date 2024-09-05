@@ -111,9 +111,12 @@ export const LoginButton = styled.button`
 
 export const GuestButton = styled.button`
   background-color: #2563EB;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   color: white;
   border: none;                
-  padding: 10px 20px;  /* Adjusted padding for better look */
+  padding: 10px 5px;  /* Adjusted padding for better look */
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;

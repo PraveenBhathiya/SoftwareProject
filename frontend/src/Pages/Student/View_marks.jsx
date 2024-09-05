@@ -15,11 +15,7 @@ const Student_View_marks = () => {
         <div className="marks-container">
         <div className="title1">View Your Marks</div>
         <div className="profile-container">
-                    <div className='profile' onClick={() => { setMenu("Dashboard") }}>
-                        <img src={prof} alt="" />
-                        <Link to='/profile' style={{ textDecoration: 'none' }}>Profile</Link>
-                        {menu === "Profile" ? <hr /> : null}
-                    </div>
+                    
                 </div>
         <div className="marks-box">
             <div className="prop">

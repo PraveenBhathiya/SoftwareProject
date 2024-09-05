@@ -42,7 +42,7 @@
 }
 .profile-container {
   width: 10%;
-  margin-left: 20px;
+  margin-left: 2%;
 }
 
 .profile {
@@ -51,8 +51,8 @@
   color: #2648c3;
   gap: 5px;
   font-size: 19px;
-  margin-left: 100px;
-  margin-top: -75px;
+  margin-left: 920px;
+  margin-top: -25px;
 }
 .profile img{
     width: 24px;

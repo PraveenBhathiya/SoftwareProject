@@ -1,6 +1,7 @@
 .teacher-marks {
   display: flex;
-  height: 100vh; 
+  height: 100vh;
+  
 }
 
 .TeacherSidebar {
@@ -53,23 +54,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(216, 232, 240);
+  background-color: #EFF4FF;
   padding: 15px;
   border-radius: 8px;
-  width: 280px;
-  height: 50px;
+  width: 260px;
+  height: 70px;
   box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
 }
 
 .e22 p, .e21 p, .e20 p, .e19 p {
   font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -2px;
+  margin-left: 7px;
   color: black;
   text-align: center;
   padding: 0;
 }
 
 .e22-btn, .e21-btn, .e20-btn, .e19-btn {
-  background-color: #3a3ab8;
+  background-color: #2563EB;
+  font-size: 16px;
   color: white;
   border: none;
   text-align: center;
@@ -114,7 +121,7 @@
   width: 240px;
   height: 100px;
   align-items: center;
-  background:#dfecf7;
+  background:rgb(228, 241, 254);
 }
 
 .marks-box .prop p, .prog p, .fin p {

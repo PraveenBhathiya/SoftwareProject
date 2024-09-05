@@ -13,13 +13,7 @@ const Admin_Marks = () => {
 
             <div className="marks-container">
                 <div className="title">Marks</div>
-                <div className="profile-container">
-                    <div className='profile' onClick={() => { setMenu("Dashboard") }}>
-                        <img src={prof} alt="" />
-                        <Link to='/profile' style={{ textDecoration: 'none' }}>Profile</Link>
-                        {menu === "Profile" ? <hr /> : null}
-                    </div>
-                </div>
+                
 
                 <div className="courses">
                     <div className="e22">
