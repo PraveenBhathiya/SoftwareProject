@@ -10,6 +10,11 @@
   .TeacherSidebar, .StudentSidebar {
     width: 250px; 
   }
+
+  .title-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
   
   /* Main container where the table is displayed */
   .viewmarks, .marks-container {
@@ -65,6 +70,7 @@
   
   /* Table styles */
   table {
+    
     width: 100%;
     border-collapse: collapse;
     background-color: #ffffff; 
@@ -105,7 +111,7 @@
   
   /* Buttons */
   .upload-button, .submit-button {
-    background-color: #2648c3;
+    background-color: #2563EB;
     color: white;
     padding: 8px 12px;
     border: none;
@@ -115,7 +121,7 @@
   }
   
   .upload-button:hover, .submit-button:hover {
-    background-color: #3366CC;
+    background-color: #2563EB;
   }
   
   /* Media query for responsive design */

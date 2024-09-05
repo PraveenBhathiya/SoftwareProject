@@ -1,51 +1,80 @@
 import React, { useState } from 'react';
 import AdminSidebar from '../Admin/Sidebar.jsx';
 import '../../CSS/AdminTools.css';
+import { InputField, SubmitButton } from '../../Styles/AdminRegisterStyles.js';
+import { Alert } from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
+
 
 const ManageUsers = () => {
-  // State for adding users
-  const [user, setUser] = useState({
-    firstName: '',
-    fullName: '',
-    registrationNumber: '',
-    batch: '',
-    designation: '',
-  });
-
-  const [users, setUsers] = useState([]);
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [role, setRole] = useState('student'); // Default role is 'student'
 
   // State for searching users
   const [searchRegNo, setSearchRegNo] = useState('');
   const [searchedUser, setSearchedUser] = useState(null);
   const [editUser, setEditUser] = useState(null);
+  
 
-  // Handle input changes for adding users
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUser({
-      ...user,
-      [name]: value,
-    });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
+
+  const handleRoleChange = (e) => {
+    setRole(e.target.value);
+    setFormData({}); // Reset form data when role changes
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validate common fields
+    if (!formData.username || !formData.email || !formData.password) {
+      return setErrorMessage("All required fields must be filled!");
+    }
+
+    // Additional validation for students
+    if (role === 'student' && (!formData.regNo || !formData.batch)) {
+      return setErrorMessage("Registration number and batch are required for students!");
+    }
+
+    try {
+      setLoading(true);
+      setErrorMessage(null);
+
+      const res = await fetch("http://localhost:4000/api/admin/addUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, role }),
+      });
+
+      const data = await res.json();
+
+      if (data.success === false) {
+        return setErrorMessage(data.message);
+      }
+
+      setLoading(false);
+
+      if (res.ok) {
+        alert('User updated successfully');
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+      setLoading(false);
+    }
+  };
+
 
   // Handle input changes for editing searched users
   const handleEditInputChange = (e) => {
     const { name, value } = e.target;
     setEditUser({ ...editUser, [name]: value });
-  };
-
-  // Function to add users
-  const handleAddUser = () => {
-    setUsers([...users, user]);
-    setMessage('User added successfully!');
-    setUser({
-      firstName: '',
-      fullName: '',
-      registrationNumber: '',
-      batch: '',
-      designation: '',
-    });
   };
 
   // Function to search users by registration number
@@ -155,43 +184,71 @@ const ManageUsers = () => {
       <div className="main1">
         <div className="topic1">Manage Users</div>
         <div className="inputForm">
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={user.firstName}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name with initials"
-            value={user.fullName}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="registrationNumber"
-            placeholder="Registration Number"
-            value={user.registrationNumber}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="batch"
-            placeholder="Batch"
-            value={user.batch}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            name="designation"
-            placeholder="Designation"
-            value={user.designation}
-            onChange={handleInputChange}
-          />
-          <button onClick={handleAddUser}>Add User</button>
-          {message && <p className="successMessage">{message}</p>}
+
+        <label>
+          Select Role:
+          <select onChange={handleRoleChange} value={role}>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+          </select>
+        </label>
+
+        <InputField
+          type='email'
+          placeholder='Username'
+          id="username"
+          onChange={handleChange}
+          required
+        />
+
+        <InputField
+          type='email'
+          placeholder='Email'
+          id='email'
+          onChange={handleChange}
+          required
+        />
+        {role === 'student' && (
+          <>
+            <InputField
+              type='email'
+              placeholder='Registration Number'
+              id='regNo'
+              onChange={handleChange}
+              required
+            />
+
+            <InputField
+              type='email'
+              placeholder='Batch'
+              id='batch'
+              onChange={handleChange}
+              required
+            />
+          </>
+        )}
+        <InputField
+          type='password'
+          placeholder='Password'
+          id='password'
+          onChange={handleChange}
+          required
+        />
+        <SubmitButton
+          type='button'
+          onClick={handleSubmit}
+          disabled={loading}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          {loading ? "Loading..." : "Register"}
+        </SubmitButton>
+
+        {errorMessage && (
+        <Alert sx={{ mt: 5 }} severity="error" icon={<ErrorIcon />}>
+          {errorMessage}
+        </Alert>
+      )}
+          
         </div>
       </div>
     </div>

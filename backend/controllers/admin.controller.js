@@ -119,88 +119,50 @@ export const getStudent = async (req, res) => {
     }
   };
 
+  export const addUser = async (req, res, next) => {
+    const { role, username, email, regNo, batch, password } = req.body;
+  
+    if (!role || !username || !email || !password || username === "" || email === "" || password === "") {
+      return next(errorHandler(400, "All required fields must be filled!"));
+    }
+  
+    let user;
+    let userData = {
+      username,
+      email,
+      password: bcryptjs.hashSync(password, 10),
+    };
+  
+    switch (role) {
+      case 'student':
+        if (!regNo || !batch || regNo === "" || batch === "") {
+          return next(errorHandler(400, "Registration number and batch are required for students!"));
+        }
+        userData = { ...userData, regNo, batch };
+        user = new Student(userData);
+        break;
+  
+      case 'teacher':
+        user = new Teacher(userData);
+        break;
+  
+      default:
+        return next(errorHandler(400, "Invalid role specified!"));
+    }
+  
+    try {
+      await user.save();
+      res.json({ success: `Add ${role} successful!` });  // Corrected response
+    } catch (error) {
+      console.error("Error occurred in addUser:", error.message);
+      next(errorHandler(500, "An error occurred while adding the user.")); 
+    }
+  };
+  
+
 
 
   //////////////MARKS CONTROLLER///////////////////
-
-  // export const getStudentData = async (req, res) => {
-  //   try {
-  //     const students = await Student.find({}, 'regNo username'); // Fetch only regNo and username
-  //     res.json(students); // Send the data to the frontend
-  //   } catch (error) {
-  //     res.status(500).json({ message: 'Error fetching student data', error });
-  //   }
-  // };
-
-  // export const saveMarks = async (req, res) => {
-  //   const { marks } = req.body; // Array of marks data from the frontend
-  
-  //   try {
-  //     for (const markData of marks) {
-  //       const { regNo, presentationMark, vivaMark, contributionMark } = markData;
-  
-  //       // Fetch the student's username from the Student collection using regNo
-  //       const student = await Student.findOne({ regNo }, 'username');
-  
-  //       if (student) {
-  //         const { username } = student; // Extract the username
-  
-  //         // Update or create the marks for each student
-  //         await Marks.findOneAndUpdate(
-  //           { regNo, username },
-  //           { regNo, username, presentationMark, vivaMark, contributionMark },
-  //           { new: true, upsert: true } // Create new document if not found
-  //         );
-  //       } else {
-  //         console.warn(`Student with regNo ${regNo} not found`);
-  //       }
-  //     }
-  //     res.status(200).json({ message: 'Marks saved successfully' });
-  //   } catch (error) {
-  //     res.status(500).json({ message: 'Error saving marks', error });
-  //   }
-  // };
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// // Fetch student data along with their marks for a specific evaluation type
-// export const getStudentData = async (req, res) => {
-//   const { evaluationType } = req.query; // Proposal, Progress, or Final
-
-//   // Select the fields we want to return based on the evaluationType
-//   let fieldsToSelect = 'regNo  username'; // Always include regNo and username
-//   if (evaluationType === 'proposal') {
-//     fieldsToSelect += ' proposal_presentationMark  proposal_vivaMark  proposal_contributionMark';
-//   } else if (evaluationType === 'progress') {
-//     fieldsToSelect += ' progress_presentationMark  progress_vivaMark  progress_contributionMark';
-//   } else if (evaluationType === 'final') {
-//     fieldsToSelect += ' final_presentationMark  final_vivaMark  final_contributionMark';
-//   }
-
-//   try {
-//     // Fetch students with the selected fields
-//     const students = await Marks.find({}, fieldsToSelect);
-        
-//     if (!students || students.length === 0) {
-//       return res.status(404).json({ message: 'No student data found.' });
-//     }
-
-//     res.json(students);
-//   } catch (error) {
-//     res.status(500).json({ message: 'Error fetching student data through getStudentData', error });
-//   }
-// };
-
-
 
 export const getStudentData = async (req, res) => {
   const { evaluationType } = req.query;
