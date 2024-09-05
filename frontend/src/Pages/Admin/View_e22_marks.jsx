@@ -356,37 +356,7 @@ const Teacher_View_e22_marks = () => {
     }
   };
 
-  // const handleSubmit = async () => {
-  //   setError('');  // Clear the error when submitting
-  //   setSuccess(''); // Clear previous success messages
 
-  //   try {
-  //     const response = await fetch('http://localhost:4000/api/admin/saveMarks', {
-  //       method: 'PUT',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ marks, evaluationType: selectedTable }),
-  //     });
-
-  //     if (response.ok) {
-  //       setSuccess('All marks saved successfully');
-  //       setTimeout(() => setSuccess(''), 3000); // Clear the success message after 3 seconds
-  //       setMarks(marks.map(mark => ({
-  //         ...mark,
-  //         presentationMark: '',
-  //         vivaMark: '',
-  //         contributionMark: ''
-  //       })));
-  //     } else {
-  //       const errorMessage = await response.text();
-  //       setError(errorMessage || 'Error saving marks.');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error submitting marks:', error);
-  //     setError('Error saving marks. Please try again later.');
-  //   }
-  // };
 
 
   const handleSubmit = async () => {
