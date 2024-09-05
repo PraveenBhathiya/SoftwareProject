@@ -7,12 +7,17 @@ export const AdminSignInContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #EFF4FF; 
+  
   min-height: 100vh; 
+  justify-content: center; /* Ensure content is vertically centered */
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
   
 `;
 export const Title = styled.div`
   Font-size: 40px;
-  color: #fff;
+  color: #000000;
   margin-top: 50px;
   margin-bottom: 80px;
   font-weight: bold; 
@@ -30,6 +35,7 @@ export const FormContainer = styled.form`
   flex-direction: column;
   align-items: center;
   
+  background-color: #BFD3FE !important;
   width: 100%;
   max-width: 500px; 
   height: 500px;
@@ -42,7 +48,7 @@ export const FormContainer = styled.form`
 export const Topic = styled.div`
   Font-size: 30px;
   font-weight:800;
-  color: #fff;
+  color: #000000;
   margin-top: 50px;
   
 
@@ -93,7 +99,7 @@ export const SubmitButton = styled(Link)`
 export const Regs = styled(Link)`
   Font-size: 15px;
   font-weight:500;
-  color:white ;
+  color:black ;
   margin-top: 10px;
   text-decoration:none;
 
@@ -105,6 +111,10 @@ export const Regs = styled(Link)`
 export const SignInContainer = styled.div`
 display: flex;
 height: 100vh;
+
+justify-content: center; /* To center content vertically */
+  align-items: center; /* To center content horizontally */
+  overflow: hidden; 
 `;
 
 export const ImageContainer = styled.div`
