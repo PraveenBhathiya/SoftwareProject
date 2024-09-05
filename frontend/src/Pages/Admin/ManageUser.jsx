@@ -8,6 +8,11 @@ const ManageUser = () => {
   const [searchRegNo, setSearchRegNo] = useState('');
   const [searchedUser, setSearchedUser] = useState(null);
   const [editUser, setEditUser] = useState(null);
+  const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [role, setRole] = useState('student');
+  const [success, setSuccess] = useState(''); 
 
   const fetchUserData = async () => {
     try {
@@ -69,6 +74,58 @@ const ManageUser = () => {
     } catch (error) {
       console.error('Error deleting user:', error);
     }
+
+    const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
+    };
+
+    const handleRoleChange = (e) => {
+      setRole(e.target.value);
+      setFormData({}); // Reset form data when role changes
+    };
+
+    const addUser = async (e) => {
+      e.preventDefault();
+  
+      // Validate common fields
+      if (!formData.username || !formData.email || !formData.password) {
+        return setErrorMessage("All required fields must be filled!");
+      }
+  
+      // Additional validation for students
+      if (role === 'student' && (!formData.regNo || !formData.batch)) {
+        return setErrorMessage("Registration number and batch are required for students!");
+      }
+  
+      try {
+        setLoading(true);
+        setErrorMessage(null);
+  
+        const res = await fetch("http://localhost:4000/api/admin/addUser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...formData, role }),
+        });
+  
+        const data = await res.json();
+  
+        if (data.success === false) {
+          return setErrorMessage(data.message);
+        }
+  
+        setLoading(false);
+  
+        if (res.ok) {
+          alert('User Added successfully');
+          setLoading(true);
+        }
+      } catch (error) {
+        setErrorMessage(error.message);
+        setLoading(false);
+      }
+    };
   };
 
   return (
