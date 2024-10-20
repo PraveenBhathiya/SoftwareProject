@@ -1,6 +1,6 @@
 import express from 'express';
-import {getAllStudents, getStudent, updateStudent, deleteStudent, addUser, getStudentData, saveMarks} from '../controllers/admin.controller.js';
-
+import {getAllStudents, getStudent, updateStudent, deleteStudent, addUser, getStudentData, saveMarks, getStudentMarks} from '../controllers/admin.controller.js';
+import {authenticateToken} from '../utils/authenticateToken.js';
 const router = express.Router();
 
 router.get('/getAllStudents', getAllStudents);
@@ -11,5 +11,6 @@ router.post('/addUser', addUser);
 //
 router.get('/getStudentData', getStudentData);
 router.put('/saveMarks', saveMarks);
-
+//
+router.get('/getMarks', authenticateToken, getStudentMarks);
 export default router;
