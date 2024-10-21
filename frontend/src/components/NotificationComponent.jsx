@@ -122,7 +122,7 @@ const NotificationComponent = ({ isTeacher, email, notices, setDeleted }) => {
                       class="text-[13px] text-gray-500 underline hover:text-gray-800 hover:decoration-2 focus:outline-none focus:decoration-2"
                       href="#"
                     >
-                      {email}
+                      {notice.userEmail}
                     </a>
                   </li>
                 </ul>

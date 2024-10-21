@@ -1,15 +1,17 @@
 import axios from "axios";
-import { Download } from "lucide-react";
+import { Download, PenLine } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import * as XLSX from "xlsx";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const TeacherMarksUploadPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isFileUploading, setIsfileUploading] = useState(false);
   const [excelData, setExcelData] = useState(null); // JSON response from excel sheet
   const [isDownloading, setIsDownloading] = useState(false);
+  const navigate = useNavigate();
 
   // Extract the data from excel file
   const handleFileUpload = async () => {
@@ -98,12 +100,12 @@ const TeacherMarksUploadPage = () => {
   }, [excelData]);
   return (
     <div>
-      <div className="fixed top-0 right-0 lg:mt-0 mt-10">
+      <div className="fixed top-0 right-0 lg:mt-0 mt-10 gap-2">
         {isDownloading ? (
           <button
             type="button"
             disabled={true}
-            className="mt-4 gap-4 mr-8 mb-4 py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-600 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none"
+            className="mt-4 gap-4 mr-4 mb-4 py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-600 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none"
           >
             <Download />
             Downloading...
@@ -112,7 +114,7 @@ const TeacherMarksUploadPage = () => {
           <button
             type="button"
             onClick={downloadExcelSheet}
-            className="mt-4 gap-4 mr-8 mb-4 py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-800 text-white hover:bg-gray-900 focus:outline-none focus:bg-gray-900 disabled:opacity-50 disabled:pointer-events-none"
+            className="mt-4 gap-4 mr-4 mb-4 py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-800 text-white hover:bg-gray-900 focus:outline-none focus:bg-gray-900 disabled:opacity-50 disabled:pointer-events-none"
           >
             <Download size={16} />
             Download Sheet
