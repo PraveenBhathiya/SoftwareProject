@@ -1,46 +1,39 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import userRoutes from './routes/user.route.js';
-import authRoutes from './routes/auth.route.js';
-import adminRoutes from './routes/admin.route.js';
-import marksRoutes from './routes/marks.route.js';
+const express = require("express");
+const dbConnection = require("./database/dbConnection");
+const cors = require("cors");
+require("dotenv").config({ path: "./config/.env" });
 
-dotenv.config();
+// importing routes
+const userRouter = require("./routes/userRouter");
+const projectRouter = require("./routes/projectRouter");
+const markRouter = require("./routes/markRouter");
+const uploadRouter = require("./routes/uploadRouter");
+const notificationRouter = require("./routes/notificationRouter");
 
-mongoose.connect(process.env.MONGO)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.log(err));
+const app = express();
 
-const app = express()
+// Configuring cors
+const corsOptions = {
+  origin: "*",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+
+// Make the database connections
+dbConnection();
+
+// Middlewares
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.use(express.json());
 
-app.use(cors());
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/project", projectRouter);
+app.use("/api/v1/mark", markRouter);
+app.use("/api/v1/upload", uploadRouter);
+app.use("/api/v1/notification", notificationRouter);
 
-app.listen(4000, () => {
-    console.log("Server is running on port 4000");
+app.listen(process.env.PORT, () => {
+  console.log(`listing on port ${process.env.PORT}`);
 });
-
-app.use('/api/user', userRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/admin', adminRoutes);
-app.use('api/marks', marksRoutes);
-
-// app.get('/test', (req, res) => {
-//     res.send("Hello from test API");
-// });
-
-app.get('/', (req, res) => {
-    res.send("Hello from Node API server");
-});
-
-app.use((err, req, res, next) => {
-    const statusCode = err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-    res.status(statusCode).json({
-        success: false,
-        statusCode,
-        message
-    });
-});  
