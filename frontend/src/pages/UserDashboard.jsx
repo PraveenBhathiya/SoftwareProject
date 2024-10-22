@@ -19,8 +19,6 @@ const UserDashboard = () => {
   const [hasProject, setHasProject] = useState(false);
   const [tabName, setTabName] = useState("Dashboard");
   const [userProject, setUserProject] = useState({});
-  const [allNotices, setAllNotices] = useState([]);
-  const [isNoticeDeleted, setIsNoticedeleted] = useState(false); // capture the deleting of notifications
 
   // Get the project details of the user
   const getProject = async () => {
@@ -46,27 +44,11 @@ const UserDashboard = () => {
     }
   };
 
-  // Get all users
-  const getAllNotices = async () => {
-    if (email) {
-      try {
-        const response = await axios.get(
-          `http://localhost:4000/api/v1/notification/getAllNotifications`
-        );
-        setAllNotices(response.data.notifications);
-        console.log(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      console.error("Email is required to get notifications");
-    }
-  };
-
   useEffect(() => {
     getProject();
-    getAllNotices();
-  }, []);
+  }, [email, setProjectId]);
+
+  const projectId = userProject?.projectId;
   return (
     <>
       <div class="sticky top-0 inset-x-0 z-20 bg-white border-y px-4 sm:px-6 lg:px-8 lg:hidden">
@@ -265,7 +247,7 @@ const UserDashboard = () => {
                 Project Statistics
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 mt-4">
-                <BarChart />
+              <BarChart projectId={projectId} />
                 <div>
                   <h2 className="text-xl font-bold text-gray-900 mb-4">
                     Growth of Resuts
@@ -308,11 +290,7 @@ const UserDashboard = () => {
             <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl">
               Notifications
             </h2>
-            <NotificationComponent
-              isTeacher={false}
-              email={email}
-              notices={allNotices}
-            />
+            <NotificationComponent />
           </div>
         ) : (
           <div></div>
