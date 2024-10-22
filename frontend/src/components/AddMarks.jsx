@@ -82,7 +82,7 @@ const AddMarks = () => {
       final += Number(element.marks);
     });
     const marksData = {
-      value: final,
+      value: Math.ceil((final / criteriaList.length) * 100) / 100,
       assignmentId: slecteAssignemtId,
       userEmail: selectedStudent,
       projectId: projectId,

@@ -19,6 +19,7 @@ import UserTable from "../components/UserTable";
 import NotificationComponent from "../components/NotificationComponent";
 import { TeacherContext } from "../context/TeacherContext";
 import { useNavigate } from "react-router-dom";
+import TeacherMarksUploadPage from "./TeacherMarksUploadPage";
 
 const AdminDashboard = () => {
   // Navigate
@@ -240,6 +241,17 @@ const AdminDashboard = () => {
                 <li>
                   <button
                     onClick={() => {
+                      setTabName("Upload marks");
+                    }}
+                    class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                  >
+                    <Upload size={16} />
+                    Upload Marks
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
                       setTabName("Settings");
                     }}
                     class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
@@ -313,6 +325,13 @@ const AdminDashboard = () => {
               notices={allNotices}
               setDeleted={isNoticeDeleted}
             />
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {tabName === "Upload marks" ? (
+          <div>
+            <TeacherMarksUploadPage />
           </div>
         ) : (
           <div></div>

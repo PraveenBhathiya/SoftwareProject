@@ -44,6 +44,25 @@ const UserDashboard = () => {
     }
   };
 
+  // Get all users
+  const getAllNotices = async () => {
+    if (email) {
+      try {
+        const currentYear = new Date(Date.now()).getFullYear();
+        const batch = currentYear - 2002;
+        const response = await axios.get(
+          `http://localhost:4000/api/v1/notification/getNotifications/${batch}`
+        );
+        setAllNotices(response.data.notifications);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      console.error("Email is required to get notifications");
+    }
+  };
+
   useEffect(() => {
     getProject();
   }, [email, setProjectId]);
