@@ -96,6 +96,7 @@ exports.registerTeacher = async function (req, res, next) {
       email: email,
       phone: phone,
       password: password,
+      batch: 2024,
     });
 
     const user = await newUser.save();
