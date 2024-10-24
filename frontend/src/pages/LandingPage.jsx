@@ -264,26 +264,19 @@ const LandingPage = () => {
 
                 <div class="relative z-10">
                   <p class="text-xl italic text-gray-800">
-                    Working with this system was straightforward and efficient.
-                    The support team was quick to address any issues
+                    Streamline your projects and drive the innovation
                   </p>
                 </div>
 
                 <footer class="mt-3">
                   <div class="flex items-center gap-x-4">
                     <div class="shrink-0">
-                      <img
-                        class="size-8 rounded-full"
-                        src="https://bucketuni.s3.eu-north-1.amazonaws.com/profilePictures/emitterIR.png"
-                        alt="Avatar"
-                      />
+                      
                     </div>
                     <div class="grow">
-                      <div class="font-semibold text-gray-800">
-                        Nuwan Vishwa
-                      </div>
+                      
                       <div class="text-xs text-gray-500">
-                        Undergraduate Student | Electrical Engineering
+                        
                       </div>
                     </div>
                   </div>
