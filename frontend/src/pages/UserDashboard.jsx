@@ -261,6 +261,8 @@ const UserDashboard = () => {
                 Approved
               </span>
               <StatCard
+                projectId={userProject.projectId}
+                email={email}
                 numberOfMumbers={userProject.numberOfMembers}
                 yearOfTheProject={userProject.year}
                 lectureName={userProject.lectureName}
