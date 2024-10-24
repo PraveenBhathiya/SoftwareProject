@@ -121,30 +121,11 @@ const MarkSection = ({ isProjectExists, projectId }) => {
 
                       <dl class="flex justify-center items-center divide-x divide-gray-200">
                         <dt class="pe-3">
-                          <span class="text-green-600">
-                            <svg
-                              class="inline-block size-4 self-center"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
-                              />
-                            </svg>
-                            <span class="inline-block text-sm">5.6%</span>
-                          </span>
                           <span class="block text-sm text-gray-500">
                             Student Mail
                           </span>
                         </dt>
                         <dd class="text-start ps-3">
-                          <span class="text-sm font-semibold text-gray-800">
-                            7
-                          </span>
                           <span class="block text-sm text-gray-500">
                             {mark.userEmail}
                           </span>
@@ -190,30 +171,11 @@ const MarkSection = ({ isProjectExists, projectId }) => {
 
                       <dl class="flex justify-center items-center divide-x divide-gray-200">
                         <dt class="pe-3">
-                          <span class="text-green-600">
-                            <svg
-                              class="inline-block size-4 self-center"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
-                              />
-                            </svg>
-                            <span class="inline-block text-sm">5.6%</span>
-                          </span>
                           <span class="block text-sm text-gray-500">
                             Student Mail
                           </span>
                         </dt>
                         <dd class="text-start ps-3">
-                          <span class="text-sm font-semibold text-gray-800">
-                            7
-                          </span>
                           <span class="block text-sm text-gray-500">
                             {mark.userEmail}
                           </span>
@@ -260,30 +222,11 @@ const MarkSection = ({ isProjectExists, projectId }) => {
 
                       <dl class="flex justify-center items-center divide-x divide-gray-200">
                         <dt class="pe-3">
-                          <span class="text-green-600">
-                            <svg
-                              class="inline-block size-4 self-center"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              viewBox="0 0 16 16"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"
-                              />
-                            </svg>
-                            <span class="inline-block text-sm">5.6%</span>
-                          </span>
                           <span class="block text-sm text-gray-500">
                             Student Mail
                           </span>
                         </dt>
                         <dd class="text-start ps-3">
-                          <span class="text-sm font-semibold text-gray-800">
-                            7
-                          </span>
                           <span class="block text-sm text-gray-500">
                             {mark.userEmail}
                           </span>
