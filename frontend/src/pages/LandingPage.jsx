@@ -274,13 +274,13 @@ const LandingPage = () => {
                     <div class="shrink-0">
                       <img
                         class="size-8 rounded-full"
-                        src="https://media.licdn.com/dms/image/v2/D5603AQGfKwteOLHR0g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1714182526638?e=2147483647&v=beta&t=ZjiUFrk1LpZDC8bM1yqIx0w9_ZHHFMTcUxu-r7OVICo"
+                        src="https://bucketuni.s3.eu-north-1.amazonaws.com/profilePictures/emitterIR.png"
                         alt="Avatar"
                       />
                     </div>
                     <div class="grow">
                       <div class="font-semibold text-gray-800">
-                        Choola Numwan
+                        Nuwan Vishwa
                       </div>
                       <div class="text-xs text-gray-500">
                         Undergraduate Student | Electrical Engineering
